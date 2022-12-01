@@ -1,0 +1,34 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Tickets</h1>
+<p></p>
+<div class="row ml-0 mt-2 mb-3">
+    <div class="col-2">
+        <%= link_to "New Ticket ", new_ticket_path, class: ["btn", "btn-primary"] %>
+    </div>
+</div>
+<div class="btn-group" role="group" aria-label="Sort Tickets">
+  <%= link_to "By date", tickets_url ,  class: ["btn btn-secondary btn-sort-date"] %>
+  <%= link_to "By prio", { controller: "tickets", action: "sort_priority"}, method: :post, class: ["btn", "btn btn-secondary btn-sort-name"] %>
+</div>
+<div class="row ml-0 mt-2">
+  <p>Your open tickets:</p>
+</div>
+<div class="row">
+  <% @open_tickets.each do |ticket| %>
+    <%= render partial: 'tickets/ticket_tile', locals: { ticket: ticket } %>
+  <% end %>
+</div>
+
+<div class="row ml-0 mt-2">
+  <p>Your closed tickets:</p>
+</div>
+<div class="row">
+  <% @closed_tickets.each do |ticket| %>
+    <%= render partial: 'tickets/ticket_tile', locals: { ticket: ticket } %>
+  <% end %>
+</div>
+
+<div class="row ml-0 mt-3">
+    <%= link_to 'Back', root_path %>
+</div>

@@ -1,0 +1,43 @@
+<div class="row ml-0 mt-3">
+    <h2>Support Executive ID number:
+        <%=@sp.id %>
+    </h2>
+</div>
+<div class="row ml-0 mt-3">
+    <ul class="list-unstyled">
+        <li><strong>Name:</strong>
+            <%=@sp.name + " " + @sp.last_name%>
+        </li>
+        <li><strong>eMail:</strong>
+            <%=@sp.email %>
+        </li>
+        <li><strong>Telephone:</strong>
+            <%=@sp.telephone %>
+        </li>
+        <pre></pre>
+        <pre></pre>
+        <h4>Work Data
+        </h4>
+        <li><strong>N° of total tickets in charge:</strong>
+            <%=@total%>
+        </li>
+        <li><strong>N° of open tickets:</strong>
+            <%=@abiertos%>
+        </li>
+
+        <li><strong>N° of closed tickets:</strong>
+            <%=@cerrados %>
+        </li>
+        <pre></pre>
+        <pre></pre>
+        <h4>Ranking</h4>
+          <li><strong>Average raiting</strong>
+            <%= @promedio %>
+        </li>
+        
+    </ul>
+</div>
+
+<div class="row ml-0 mt-3">
+    <%= link_to 'Back', root_path %>
+</div>

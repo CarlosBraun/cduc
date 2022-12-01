@@ -1,0 +1,12 @@
+<div class="col-6">
+<%= form_with model: [@ticket, @comment], local: true do |form| %>
+  <%= errors_for @comment %>
+  <div class="mb-3">
+    <%= form.label :comment, class: "form-label" %>
+    <%= form.text_area :comment, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= form.submit "Add Information", class: ["btn", "btn-primary"] %>
+  </div>
+<% end %>
+</div>

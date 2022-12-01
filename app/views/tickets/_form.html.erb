@@ -1,0 +1,35 @@
+<div class="row ml-0">
+  <div class="col-6">
+    <%= form_with model: ticket, local: true do |form| %>
+      <%= errors_for ticket %>
+      <% if $masterauth or $lowauth %>
+      <div class="mb-3">
+        <%= form.label :response, class: "form-label" %>
+        <%= form.text_field :response, class: "form-control" %>
+      </div>
+      <% end %>
+      <% if  not($masterauth or $lowauth) %>
+      <div class="mb-3">
+        <%= form.label :tags, class: "form-label" %>
+        <%= form.text_field :tags, class: "form-control" %>
+      </div>
+      <div class="mb-3">
+        <%= form.label "Date of the incident", class: "form-label" %>
+        <%= form.datetime_local_field :creation_date, class: "form-control" %>
+      </div>
+      <div class="mb-3">
+        <%= form.label :priority, class: "form-label" %>
+        <%= form.select :priority, ["Low", "Normal", "High", "Urgent"], class: "form-control" %>
+      </div>
+      <div class="mb-3">
+        <%= form.label "File" %><br />
+        <%= form.file_field :flyer, class: "form-control-file" %>
+      </div>
+      <% end %>
+      <div class="form-group mt-2">
+      <%= form.submit class: ["btn", "btn-primary"] %>
+      <%= link_to "Back", :back, class: ["btn", "btn-secondary"] %>
+    </div>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+<div class="card mt-4">
+  <div class="card-body">
+    <% if user_signed_in? %>
+    Welcome, <%= user.name + " "+ user.last_name%>
+    <% end %>
+    <% if !user_signed_in? %>
+    Welcome, Visitor
+    <% end %>
+  </div>
+</div>

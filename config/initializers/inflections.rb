@@ -11,6 +11,12 @@
 # end
 
 # These inflection rules are supported but not enabled by default:
-# ActiveSupport::Inflector.inflections(:en) do |inflect|
-#   inflect.acronym "RESTful"
-# end
+ActiveSupport::Inflector.inflections(:en) do |inflect|
+  inflect.acronym 'API'
+  inflect.uncountable "login"
+  inflect.uncountable "Login"
+  inflect.uncountable "sign_up"
+  inflect.uncountable "SignUp"
+  #   inflect.acronym "RESTful"
+end
+

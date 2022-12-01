@@ -1,0 +1,84 @@
+<div class="row ml-0 mt-3">
+    <h2>Ticket ID number:
+        <%=@ticket.id %>
+    </h2>
+</div>
+<div class="row ml-0 mt-3">
+    <h3>
+        <%=@ticket.resolution %>
+    </h3>
+</div>
+
+<div class="row ml-0 mt-3">
+    <ul class="list-unstyled">
+        <% if @ticket.response != nil %>
+            <li><strong>Response:</strong>
+            <%=@ticket.response %>
+            <% if not($masterauth or $lowauth) %>
+            <div class="col-2">
+                <%= link_to "Accept response and Close Ticket", { controller: "tickets", action: "close_ticket", id: @ticket.id }, method: :post, class: ["btn", "btn-primary"] %>
+            </div>
+            <% end %>
+        </li>
+        <% end %>
+
+        <li><strong>State:</strong>
+            <%=@ticket.state %>
+        </li>
+        <li><strong>Priority:</strong>
+            <%=@ticket.priority %>
+        </li>
+        <pre></pre>
+        <pre></pre>
+        <h4>Incident
+        </h4>
+        <li><strong>Summary:</strong>
+            <%=@incident.summary %>
+        </li>
+        <li><strong>Description:</strong>
+            <%=@incident.description %>
+        </li>
+        <pre></pre>
+        <pre></pre>
+        <h4>Comments 
+        </h4>
+        <% @comments.each do |x| %>
+            <tr>
+
+                <li><%= x %>
+
+                    <pre></pre>
+                </li>
+            </tr>
+        <% end %>
+        <div class="row ml-0 mt-2 mb-3">
+            <div class="col-2">
+                <%= link_to "Add Comment", new_comment_url, class: ["btn", "btn-primary"] %>
+            </div>
+        </div>
+
+        <pre></pre>
+        <pre></pre>
+        <h4>Support Executive Information:
+        </h4>
+        </li>
+        <li><strong> Name:</strong>
+            <%=@sp.name + " "+@sp.last_name %>
+        </li>
+        <li><strong>Contact:</strong>
+            <%=@sp.email %>
+        </li>
+    </ul>
+</div>
+<div class="row ml-0 mt-2 mb-3">
+    <% if $masterauth or $lowauth %>
+        <div class="col-2">
+            <%= link_to "Edit Ticket", edit_ticket_path, class: ["btn", "btn-primary"] %>
+        </div>
+
+    <% end %>
+    
+</div>
+<div class="row ml-0 mt-3">
+    <%= link_to 'Back', tickets_path %>
+</div>

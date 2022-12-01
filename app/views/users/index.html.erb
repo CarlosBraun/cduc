@@ -1,0 +1,43 @@
+
+<h1>Users and Personal Administration</h1>
+
+<div class="row ml-0 mt-2">
+  <p>As a Supervisor you can give attributes of Suppport Executive to Users</p>
+</div>
+<div class="row ml-0">
+  <table class="table">
+    <thead>
+      <th scope="col">Id</th>
+      <th scope="col">Name</th>
+      <th scope="col">eMail</th>
+      <th scope="col">Range</th>
+      <th scope="col">Actions</th>
+    </thead>
+    <tbody>
+      <% @numeros.each do |x| %>
+        <tr>
+          <td><%= @users[x].id%></td>
+          <td><%= @users[x].name + " " + @users[x].last_name %></td>
+          <td><%= @users[x].email%></td>
+          <td><%= @lista[x]%></td>
+          <td>
+            <% if @lista[x] == "User" %>
+              <%= link_to "Make a Executive", { controller: "users", action: "add_executive", id: @users[x].id }, method: :post, class: ["btn", "btn-primary"] %>
+            <% end %>
+            <% if @lista[x] == "Support Executive" %>
+            <%= link_to 'Inspect', support_executive_path(SupportExecutive.find(@se_all[x])), class: ["btn", "btn-primary"] %>
+              <%= link_to "Make a User", { controller: "users", action: "remove_executive", id: @users[x].id }, method: :post, class: ["btn", "btn-primary"] %>
+            <% end %>
+          
+          
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <p>
+    <%= link_to 'Home', root_path %>
+  </p>
+</div>
+  
+

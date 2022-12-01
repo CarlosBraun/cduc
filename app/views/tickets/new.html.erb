@@ -1,0 +1,27 @@
+<h1>New ticket</h1>
+
+<div class="row ml-0 mt-3">
+    <ul class="list-unstyled">
+        <li>Support Executive that will be charge of this new ticket:
+          <strong> <%= " "+@se.name + " " + @se.last_name %> </strong>
+        </li> 
+        <li>
+          <p></p>
+        </li>
+        <li>
+          The first step to create the ticket is specify <strong>one</strong> Tag and the Priority.
+        </li>
+        <li>
+          Be careful with the priority field, set the value regarding priority among your tickets.
+        </li>
+
+    </ul>
+</div>
+
+<%= render "form", ticket: @ticket %>
+
+<br>
+
+<div>
+  <%= link_to "Back to tickets", tickets_path %>
+</div>

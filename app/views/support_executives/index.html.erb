@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Support executives</h1>
+
+<div id="support_executives">
+  <% @support_executives.each do |support_executive| %>
+    <%= render support_executive %>
+    <p>
+      <%= link_to "Show this support executive", support_executive %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New support executive", new_support_executive_path %>

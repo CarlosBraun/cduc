@@ -1,0 +1,20 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Login</h1>
+
+<div class="row ml-0 mt-2">
+  <div class="col-6">
+    <p>Please enter the required information to log in in our system:</p>
+  </div>
+</div>
+<%= render partial: "form",
+           locals: {
+               login: @login,
+               submit_btn_text: "Log In"
+    } %>
+
+<div class="row ml-0 mt-2">
+  <div class="col-6">
+    <a href="users/new">Don't have an account yet? Sign up!</a>
+  </div>
+</div>

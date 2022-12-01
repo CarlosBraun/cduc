@@ -1,0 +1,16 @@
+<div class="col-6">
+<%= form_with model: [@ticket, @incident], remote: true do |form| %>
+  <%= errors_for @incident %>
+  <div class="mb-3">
+    <%= form.label :summary, class: "form-label" %>
+    <%= form.text_field :summary, class: "form-control" %>
+  </div>
+  <div class="mb-3">
+    <%= form.label :description, class: "form-label" %>
+    <%= form.text_area :description, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= form.submit "Add Information", class: ["btn", "btn-primary"] %>
+  </div>
+<% end %>
+</div>
