@@ -27,7 +27,7 @@ This repository contains the project for the web application of the Club Deporti
     - Permissions and data structure.
     - App to evaluate.
 
-###Developer contact
+### Developer contact
 Name: Carlos Braun
 Mail: cibraun@miuandes.cl
 Phone: +56999393618
