@@ -1,35 +1,30 @@
 <!DOCTYPE html>
 <html>
+<div class="min-vh-100 d-flex flex-column justify-content-between">
   <head>
-    <title>Support G14</title>
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
-  </head>
-  <body>
-    <header>
-      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <div class="container-fluid">
-          <%= link_to "Sernak", root_path, class: "navbar-brand", style:
+        <img src="cduc.png" alt="Logo" width="24" height="24">
+          <%= link_to "Inicio", root_path, class: "navbar-brand", style:
           "margin-left:.5em" %>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav me-auto mb-2 mb-md-0">
-              <% if user_signed_in? %>
-                <li class="nav-item">
-                  <%= link_to "Tickets", tickets_url, class: "nav-link" %>
-                </li>
-                <% if $masterauth %>
-                  <li class="nav-item">
-                    <%= link_to "Users and Personal", users_url, class: "nav-link" %>
-                  </li>
-                <% end %>
-              <% end %>
+              <li class="nav-item">
+                <%= link_to "   ", "", class: "nav-link" %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "Jugadores", root_path, class: "nav-link" %>
+              </li>
             </ul>
+            
             <% if user_signed_in? %>
                   <form class="d-flex" style="margin-right: 1em" role="search">
                     <input class="form-control me-2" id="search_box" type="search" placeholder="Search" aria-label="Search">
@@ -54,42 +49,44 @@
         </div>
       </div>
     </nav>
-  </header>
+  </head>
+  <body>
   <!-- The .container-fluid class provides a full width container, spanning the entire width of the viewport -->
-  <main class="container-fluid" style="margin-top: 4em">
-    <div class="row">
-      <aside class="col-sm-2" id="user_info">
+    <main class="container-fluid" style="margin-top: 4em">
+      <div class="row">
+        <aside class="col-sm-2" id="user_info">
+          <img src="cduc.png" alt="Logo" width="220">
           <%= render partial: "users/user_tile", locals: { user: current_user } %>
-      </aside>
-      <div class="col-sm-10" id="main_content">
-        <% if notice.present? %>
-          <div class="row ml-0 mt-3" role="alert">
-            <div id="notice" class="alert alert-success">
-              <%= notice %>
+        </aside>
+        <div class="col-sm-10" id="main_content">
+          <% if notice.present? %>
+            <div class="row ml-0 mt-3" role="alert">
+              <div id="notice" class="alert alert-success">
+                <%= notice %>
+              </div>
             </div>
-          </div>
-        <% end %>
-        <% if alert.present? %>
-          <div class="row ml-0 mt-3" role="alert">
-            <div id="alert" class="alert alert-danger">
-              <%= alert %>
+          <% end %>
+          <% if alert.present? %>
+            <div class="row ml-0 mt-3" role="alert">
+              <div id="alert" class="alert alert-danger">
+                <%= alert %>
+              </div>
             </div>
-          </div>
-        <% end %>
-        <%= yield %>
+          <% end %>
+          <%= yield %>
+        </div>
       </div>
-    </div>
-  </main>
+    </main>
+  </body>
   <footer class="container-fluid text-muted">
     <div class="row mt-4">
       <p>
-        Page based in WebTech Lab 9 Starter Code wich is distributed under the
-        <a href="https://opensource.org/licenses/MIT">MIT license.</a><br />
+        Page develop by Carlos Braun</br>
         <a href="https://www.termsofusegenerator.net/live.php?token=7X92r3eCDtY8DP6IjBR1sZjfDVJRA1Zz">Terms of Use.</a><br />
         <a href="https://www.termsofservicegenerator.net/live.php?token=RkgUzwdeo3L2m2p2laWgqPJ6R5qbTs1k">Terms of Service.</a><br />
-        Contact us at: help@support.com
+        Contact us at: <a href="">cibraun@miuandes.cl.</a><br />
       </p>
     </div>
   </footer>
-</body>
+</div>
 </html>

@@ -1,3 +1,3 @@
 class Entrenador < ApplicationRecord
-    has_one_attached :flyer
+    has_one_attached :avatar
 end
