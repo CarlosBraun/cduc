@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+  <%= favicon_link_tag %>
   <div class="min-vh-100 d-flex flex-column justify-content-between">
     <head>
       <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -10,13 +11,15 @@
       <style>
         .nav-link1{
           color:white;
-
           text-decorations:none;
+        }
+        .nav-link1:hover{
+          color:white;
         }
       </style>
       <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
           <div class="container-fluid">
-          <img src="cduc.png" alt="Logo" width="24" height="24">
+            <img src="/assets/cduc.png" width="24" height="24">
             <%= link_to "Inicio", root_path, class: "navbar-brand", style:
             "margin-left:.5em" %>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -47,7 +50,6 @@
     </head>
     
     <body>
-    <%=yield %>
     <!-- The .container-fluid class provides a full width container, spanning the entire width of the viewport -->
       <main class="container-fluid" style="margin-top:3em">
         <div class="row">
@@ -93,16 +95,30 @@
           <% end %>
         </div>
       </main>
+      <%=yield %>
     </body>
 
     
-    <footer class="container-fluid text-muted">
-      <div class="row mt-4">
+    <footer class="container-fluid text-muted" >
+      <style>
+        footer{
+          margin-top: 4px;
+          background-color: #0D6EFD;
+        }
+        a{
+          text-decoration: none;
+          text-shadow: 0px 0px 0px #000000;
+        }
+        a:hover {
+          text-decoration: underline;
+        }
+      </style>
+      <div class="row mt-4" style="color: white;">
         <p>
           Page develop by Carlos Braun</br>
-          <a href="https://www.termsofusegenerator.net/live.php?token=7X92r3eCDtY8DP6IjBR1sZjfDVJRA1Zz">Terms of Use.</a><br />
-          <a href="https://www.termsofservicegenerator.net/live.php?token=RkgUzwdeo3L2m2p2laWgqPJ6R5qbTs1k">Terms of Service.</a><br />
-          Contact us at: <a href="">cibraun@miuandes.cl.</a><br />
+          <a href="https://www.termsofusegenerator.net/live.php?token=7X92r3eCDtY8DP6IjBR1sZjfDVJRA1Zz" style="color:white" >Terms of Use</a><br />
+          <a href="https://www.termsofservicegenerator.net/live.php?token=RkgUzwdeo3L2m2p2laWgqPJ6R5qbTs1k" style="color:white";"hover.color:white">Terms of Service</a><br />
+          Contact us at: <a href="" style="color:white;">cibraun@miuandes.cl</a><br />
         </p>
       </div>
     </footer>

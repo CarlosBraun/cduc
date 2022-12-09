@@ -1,9 +1,24 @@
-<h2>Welcome to the Ticket Shop</h2>
-
-<div class="row ml-0 mt-3">
+<h2 style="text-align: center;">Accede a tu Cuenta</h2>
+<style>
+  container{
+    a.color : blue;
+    color: blue;
+    text-decoration: underline;
+  }
+  .a:hover {
+    color: blue;
+    text-decoration: underline;
+  }
+  .col-4{
+    width: 100% ;
+  }
+  
+</style>
+<div class="container" style="width: 700px;">
+<div class="row ml-0 mt-3" style="margin-right:0;" >
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="mb-3 col-4">
-    <%= f.label :email, class: "form-label" %><br />
+  <div class="mb-3 col-4" >
+    <%= f.label :email, class: "form-label"  %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
   </div>
 
@@ -20,9 +35,10 @@
   <% end %>
 
   <div class="mb-3 col-4">
-    <%= f.submit "Log in", class: ["btn", "btn-primary"] %>
+    <%= f.submit "Acceder", class: ["btn", "btn-primary"] %>
   </div>
 <% end %>
 </div>
-
 <%= render "devise/shared/links" %>
+</div>
+
