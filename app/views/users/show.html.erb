@@ -1,10 +1,22 @@
-<div class="row ml-0 mt-3">
+<div class="">
     <h2>
         <%=@user.name + " " + @user.last_name %>
     </h2>
 </div>
 <div class="row ml-0 mt-3">
-  <h2><%= image_tag(@user.flyer.attached? ? @user.flyer : "profile.png", width: "400px", data: { bs_toggle: "modal", bs_target: "#viewFlyer" }) %></h2>
+  <div class="col">
+    <h2><%= image_tag(@user.avatar.attached? ? @user.avatar : "profile.png", width: "400px", data: { bs_toggle: "modal", bs_target: "#viewFlyer" }) %></h2>
+  </div>
+  <div class="col">
+    <ul class="list-unstyled">
+      <li><strong>Mail:</strong>
+          <%=@user.email %>
+      </li>
+      <li><strong>Telephone:</strong>
+          <%=@user.telephone %>
+      </li>
+    </ul>
+  </div>
 </div>
 <div class="row ml-0 mt-3">
     <ul class="list-unstyled">
@@ -13,9 +25,6 @@
         </li>
         <li><strong>Telephone:</strong>
             <%=@user.telephone %>
-        </li>
-        <li><strong>Tickets:</strong>
-            <%= @ticketsnumber %>
         </li>
     </ul>
 </div>
@@ -39,7 +48,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <%= image_tag @user.flyer.attached? ? @user.flyer : "thumbnail.svg", width: "100%" %>
+        <%= image_tag @user.avatar.attached? ? @user.avatar : "thumbnail.svg", width: "100%" %>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
