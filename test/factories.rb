@@ -2,6 +2,26 @@ require 'securerandom'
 
 include FactoryBot::Syntax::Methods
 FactoryBot.define do
+  factory :noticium do
+    titulo { "MyString" }
+    texto { "MyString" }
+    categoria { "MyString" }
+  end
+
+  factory :jugador do
+    mail { "MyString" }
+    name { "MyString" }
+    last_name { "MyString" }
+    telephone { "MyString" }
+  end
+
+  factory :entrenador do
+    mail { "MyString" }
+    name { "MyString" }
+    last_name { "MyString" }
+    telephone { "MyString" }
+  end
+
   factory :organizer do
     name { "MyString" }
     address { "MyString" }
