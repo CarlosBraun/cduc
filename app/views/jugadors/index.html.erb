@@ -1,0 +1,28 @@
+<p style="color: green"><%= notice %></p>
+<title> Voley UC | Jugadores</title>
+<h1>Jugadores</h1>
+<a class="btn btn-primary" id="newboton" href= new_jugador_path role="button">Nuevo Jugador</a>
+<style>
+        h1{
+          margin-left: 4.5rem ;
+          vertical-align: top ;
+        }
+        #jugadores{
+          margin-left: 4.5rem ;
+        }
+        #newboton{
+          margin-left: 4.5rem ;
+          width : 10em;
+        }
+      </style>
+<div id="jugadores">
+
+  <% @jugadors.each do |jugador| %>
+    <%= render jugador %>
+    <p>
+      <%= link_to "Show this jugador", jugador %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New jugador", new_jugador_path %>

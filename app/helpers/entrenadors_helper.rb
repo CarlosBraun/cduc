@@ -1,0 +1,2 @@
+module EntrenadorsHelper
+end

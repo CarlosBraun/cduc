@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Noticia</h1>
+
+<div id="noticia">
+  <% @noticia.each do |noticium| %>
+    <%= render noticium %>
+    <p>
+      <%= link_to "Show this noticium", noticium %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New noticium", new_noticium_path %>
