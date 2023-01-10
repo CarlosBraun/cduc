@@ -86,3 +86,5 @@ group :test do
 end
 
 gem "devise", "~> 4.8"
+
+gem 'gravatar_image_tag' , github: 'mdeering/gravatar_image_tag'

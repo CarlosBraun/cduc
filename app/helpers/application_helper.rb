@@ -31,5 +31,13 @@ module ApplicationHelper
     end
     return 0
   end
+  def jugador_avatar(jugador, size=40)
+    if jugador.avatar.attached?
+      jugador.avatar.variant(resize: "#{size}x#{size}!")
+    else
+      'profile.png'
+    end
+    
+  end
 
 end

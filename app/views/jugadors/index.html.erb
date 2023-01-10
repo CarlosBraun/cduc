@@ -1,28 +1,75 @@
 <p style="color: green"><%= notice %></p>
-<title> Voley UC | Jugadores</title>
-<h1>Jugadores</h1>
-<a class="btn btn-primary" id="newboton" href= new_jugador_path role="button">Nuevo Jugador</a>
+<title>Jugadores</title>
 <style>
         h1{
-          margin-left: 4.5rem ;
-          vertical-align: top ;
+          margin-top: 2%;
+          margin-left: 8%;
         }
-        #jugadores{
-          margin-left: 4.5rem ;
-        }
+
         #newboton{
           margin-left: 4.5rem ;
           width : 10em;
         }
+        #conteiner_row{
+          margin-left: 7%;
+          margin-right: 0px;
+          margin-top: 2%;
+          margin-bottom: 2%;
+        }
+        #lista{
+          width : auto;
+          margin-left: 10%;
+          margin-right: 10%;
+          background-color: white;
+        }
+        #avatares{
+          border-radius: 50%;
+          width: 40px;
+          height: 40px;
+        }
       </style>
 <div id="jugadores">
-
+  <h1>Jugadores</h1>
+  <div class="row" id="conteiner_row">
+    <div class="col-md-auto">
+    <a class="btn btn-primary" id="newboton" href= <%= new_jugador_path %> role="button">Nuevo Jugador</a>
+    </div>
+    <div class="col">
+      <%= render partial: 'jugadors/jugador_sort_controls' %>
+    </div>
+  </div>
+  <div class="card-header pb-0" id="lista">
+    <div class="card-body">
+      <table class="table table-striped" style="width:100%">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Nombre</th>
+            <th>Posición</th>
+            <th>Categoría</th>
+            <th>Pagos</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @jugadors.each do |jugador| %>
+              <tr>
+                <td><%= image_tag jugador_avatar(jugador,40), id: "avatares" %></td>
+                <td style="vertical-align: middle;"><%=jugador.name %></td>
+                <td style="vertical-align: middle;">Polivalente</td>
+                <td style="vertical-align: middle;">Todo Competidor</td>
+                <td style="vertical-align: middle;"><span class="badge bg-success">Active</span></td>
+              </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
   <% @jugadors.each do |jugador| %>
     <%= render jugador %>
     <p>
-      <%= link_to "Show this jugador", jugador %>
     </p>
   <% end %>
 </div>
 
-<%= link_to "New jugador", new_jugador_path %>
+
+			

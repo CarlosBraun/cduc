@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/mdeering/gravatar_image_tag.git
+  revision: c02351f7d6649e2346394e33164a7154e671ec19
+  specs:
+    gravatar_image_tag (1.2.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -271,6 +277,7 @@ DEPENDENCIES
   devise (~> 4.8)
   factory_bot_rails (~> 6.2)
   faker (~> 2.20)
+  gravatar_image_tag!
   htmlbeautifier
   image_processing (~> 1.2)
   importmap-rails
