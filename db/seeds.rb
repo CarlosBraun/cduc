@@ -17,6 +17,6 @@ j2 = Jugador.create! :name => 'Franco', :last_name => "Díaz", :mail => 'saddly_
 j3 = Jugador.create! :name => 'Goran', :last_name => "Grimalt", :mail => 'saddly_w13@amg.com', :telephone => "56999393618"
 j4 = Jugador.create! :name => 'Clemente', :last_name => "Vivanco", :mail => 'saddly_w13@amg.com', :telephone => "56999393618"
 
-e1 = Entrenador.create! :name => 'Felipe', :last_name => "Papagallo", :mail => 'fpapagallo@uc.cl', :telephone => "56999393618"
-e2 = Entrenador.create! :name => 'Rodrigo', :last_name => "Pulgar", :mail => 'rpulgar@uc.cl', :telephone => "56999393618"
-e3 = Entrenador.create! :name => 'Rodrigo', :last_name => "Grimalt", :mail => 'rgrimalt@uc.cl', :telephone => "56999393618"
+e1 = Entrenador.create! :name => 'Rodrigo', :rol => 'Head Coach', :last_name => "Grimalt", :mail => 'rgrimalt@uc.cl', :telephone => "56999393618"
+e2 = Entrenador.create! :name => 'Felipe', :rol => 'Coach', :last_name => "Papagallo", :mail => 'fpapagallo@uc.cl', :telephone => "56999393618"
+e3 = Entrenador.create! :name => 'Rodrigo', :rol => 'Coach', :last_name => "Pulgar", :mail => 'rpulgar@uc.cl', :telephone => "56999393618"

@@ -42,6 +42,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_30_010454) do
   create_table "entrenadors", force: :cascade do |t|
     t.string "mail"
     t.string "name"
+    t.string "rol"
     t.string "last_name"
     t.string "telephone"
     t.datetime "created_at", null: false

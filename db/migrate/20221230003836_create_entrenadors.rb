@@ -3,6 +3,7 @@ class CreateEntrenadors < ActiveRecord::Migration[7.0]
     create_table :entrenadors do |t|
       t.string :mail
       t.string :name
+      t.string :rol
       t.string :last_name
       t.string :telephone
 
