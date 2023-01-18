@@ -20,7 +20,7 @@ import { initSortButtons } from './tickets.js'
                 search_results.remove();
             }
         })
-
+        
         // Add a click listener to the search button
         searchbtn.addTicketListener("click", (t) => {
             // Prevent the default button behavior (form submit)

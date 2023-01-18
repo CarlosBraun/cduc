@@ -53,7 +53,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_30_010454) do
     t.string "mail"
     t.string "name"
     t.string "last_name"
+    t.string "posicion"
+    t.string "categoria"
+    t.string "genero"
+    t.integer "edad"
+    t.integer "altura"
+    t.integer "embergadura"
+    t.integer "peso"
     t.string "telephone"
+    t.string "deuda"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -1,9 +1,9 @@
-<h1>New jugador</h1>
+<h1 id='titulo'>New jugador</h1>
+<style>
+  #titulo{
+    margin-left: 10%;
+    margin-top: 3%;
 
+  }
+</style>
 <%= render "form", jugador: @jugador %>
-
-<br>
-
-<div>
-  <%= link_to "Back to jugadors", jugadors_path %>
-</div>

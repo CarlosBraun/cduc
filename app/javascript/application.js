@@ -17,3 +17,6 @@ function logout() {
     return true;
   }
 
+$("tr[data-link]").click(function() {
+  window.location = $(this).data("link")
+})
