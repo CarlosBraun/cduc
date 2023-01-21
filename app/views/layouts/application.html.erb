@@ -15,7 +15,6 @@
         }
         .nav-link1{
           color:white;
-          hover.color: green;
           text-decorations:none;
           margin-left:1.5em ;
         }
@@ -25,6 +24,7 @@
         }
         .navbar:hover{
           text-decorations:none !important;
+          color: white;
         }
         navbar{
           width: 100% ;
@@ -54,6 +54,9 @@
                 </li>
                 <li class="nav-item">
                   <%= link_to "Horarios", horarios_path, class: "nav-link" %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "Anuncios", anuncios_path, class: "nav-link" %>
                 </li>
               </ul>
               <ul class="nav navbar-nav navbar-right" list-style: none;>

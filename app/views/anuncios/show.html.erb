@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @anuncio %>
+
+<div>
+  <%= link_to "Edit this anuncio", edit_anuncio_path(@anuncio) %> |
+  <%= link_to "Back to anuncios", anuncios_path %>
+
+  <%= button_to "Destroy this anuncio", @anuncio, method: :delete %>
+</div>

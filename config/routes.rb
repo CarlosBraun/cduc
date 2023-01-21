@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :anuncios
   resources :horarios
   resources :consultations
   resources :noticia
