@@ -1,0 +1,73 @@
+<style>
+  #conteiner_3{
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 3%;
+    margin-bottom: 2%;
+    width : auto;
+  }
+  #form1{
+    width : 100% ;
+  }
+  #formspace{
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+  select{
+    width: 100%;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    background-color: #fff; 
+  }
+
+</style>
+<div class="row ml-0" id="conteiner_3">
+  <div class="col" id=formspace>
+    <%= form_with model: horario, local: true do |form| %>
+      <%= errors_for horario %> 
+      <div class="row g-3">
+        <div class="col-md12">
+          <div class="mb-3" id="form1">
+            <%= form.label 'Nombre', class: "form-label" %>
+            <%= form.text_field :title , class: "form-control" %>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="mb-3" id="form1">
+            <%= form.label "Lugar", class: "form-label" %>
+            <%= form.select :lugar, ["Cancha 1", "Cancha 2", "Cancha Central", "Gym"], class: "form-control" %>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="mb-3" id="form1">
+            <%= form.label "Categoria", class: "form-label" %>
+            <%= form.select :categoria, ["Todo Competidor", "Senior", "Sub 20", "Sub 19", "Sub 18", "Sub 17", "Sub 16", "Sub 15", "Sub 14", "Sub 13", "Sub 12", "Escuelita"], class: "form-control" %>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="mb-3" id="form1">
+            <%= form.label "Comienzo", class: "form-label" %>
+            <%= form.time_field :start_time , class: "form-control" %>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="mb-3" id="form1">
+            <%= form.label "Termino", class: "form-label" %>
+            <%= form.time_field :end_time , class: "form-control" %>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="mb-3" id="form1">
+            <%= form.label "Dia", class: "form-label" %>
+            <%= form.select :dia, ["Lunes", "Martes", "Miercoles", "Jueves","Viernes"], class: "form-control" %>
+          </div>
+        </div>
+      </div>
+      <div class="form-group mt-2">
+        <%= form.submit 'Guardar Horario', class: 'btn btn-primary' %>
+        <%= link_to "Volver", :back, class: ["btn", "btn-secondary"] %>
+      </div>
+    <% end %>
+  </div>
+</div>

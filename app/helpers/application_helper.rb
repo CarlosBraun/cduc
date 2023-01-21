@@ -31,7 +31,7 @@ module ApplicationHelper
     end
     return 0
   end
-  def jugador_avatar(jugador, size=40)
+  def jugador_avatar(jugador, size)
     if jugador.avatar.attached?
       jugador.avatar.variant(resize: "#{size}x#{size}!")
     else
@@ -40,7 +40,7 @@ module ApplicationHelper
     
   end
 
-  def entrenador_avatar(entrenador, size=40)
+  def entrenador_avatar(entrenador, size)
     if entrenador.avatar.attached?
       entrenador.avatar.variant(resize: "#{size}x#{size}!")
     else
@@ -48,5 +48,4 @@ module ApplicationHelper
     end
     
   end
-
 end

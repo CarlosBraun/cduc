@@ -11,5 +11,8 @@ class ApplicationController < ActionController::Base
       devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :last_name, :telephone, :flyer ])
     end
   end
+  def set_time_zone
+    Time.zone = current_user.time_zone
+  end
 
 end

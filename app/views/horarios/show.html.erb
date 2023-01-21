@@ -1,0 +1,15 @@
+<style>
+  #botone{
+    margin-top: 1%;
+  }
+</style>
+<div class="container mt-5 text-center">
+  <title>Horario <%=@horario.id%></title>
+  <h1>Horario id#<%=@horario.id%></h1>
+  <%= render @horario %>
+  <div>
+    <%= link_to "Editar Horario", edit_horario_path(@horario) , class: ["btn", "btn-primary"] %> 
+    <%= link_to "Volver a Horarios", horarios_path , class: ["btn", "btn-secondary"] %>
+    <%= button_to "Eliminar Horario", @horario, method: :delete , class: 'btn btn-danger', id:'botone' %>
+  </div>
+</div>

@@ -11,6 +11,7 @@
       <style>
         .nav-link{
           margin-left:1.5em ;
+          color:white;
         }
         .nav-link1{
           color:white;
@@ -47,6 +48,12 @@
                 </li>
                 <li class="nav-item">
                   <%= link_to "Entrenadores", entrenadors_path, class: "nav-link" %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "Calendario", consultations_path, class: "nav-link" %>
+                </li>
+                <li class="nav-item">
+                  <%= link_to "Horarios", horarios_path, class: "nav-link" %>
                 </li>
               </ul>
               <ul class="nav navbar-nav navbar-right" list-style: none;>

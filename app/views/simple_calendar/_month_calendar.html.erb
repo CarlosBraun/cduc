@@ -1,0 +1,58 @@
+<style>
+  #next{
+    float: right;
+  }
+  #prev{
+    float: left;
+  }
+  #title1{
+    font-size: 2em;
+    margin-top: 0.67em;
+    margin-bottom: 0.67em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+  }
+  #calendar1{
+    margin-top: 2%;
+  }
+</style>
+<title>Nuevo Horario</title>
+<div class="simple-calendar" id="calendar1">
+  <div class="calendar-heading">
+    <a class="btn btn-primary" id="prev" href= <%= calendar.url_for_previous_view %> role="button"><%=t('simple_calendar.previous', default: 'Previous')%></a>
+    <span class="calendar-title" id="title1"><%= t('date.month_names')[start_date.month].upcase_first %> <%= start_date.year %></span>
+    <a class="btn btn-primary" id="next" href= <%= calendar.url_for_next_view %> role="button"><%=t('simple_calendar.next', default: 'Next')%></a>
+  </div>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <% date_range.slice(0, 7).each do |day| %>
+          <th><%= t('date.abbr_day_names')[day.wday].upcase_first %></th>
+        <% end %>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% date_range.each_slice(7) do |week| %>
+        <tr>
+          <% week.each do |day| %>
+            <%= content_tag :td, class: calendar.td_classes_for(day) do %>
+              <% if defined?(Haml) && respond_to?(:block_is_haml?) && block_is_haml?(passed_block) %>
+                <% capture_haml(day, sorted_events.fetch(day, []), &passed_block) %>
+              <% else %>
+                <% passed_block.call day, sorted_events.fetch(day, []) %>
+              <% end %>
+            <% end %>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <div class="calendar-footer" id="divfooter">
+    <a class="btn btn-primary" id="prev" href= <%= calendar.url_for_previous_view %> role="button"><%=t('simple_calendar.previous', default: 'Previous')%></a>
+    <span class="calendar-title" id="title1"><%= t('date.month_names')[start_date.month].upcase_first %> <%= start_date.year %></span>
+    <a class="btn btn-primary" id="next" href= <%= calendar.url_for_next_view %> role="button"><%=t('simple_calendar.next', default: 'Next')%></a>
+  </div>
+</div>

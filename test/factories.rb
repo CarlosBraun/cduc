@@ -2,6 +2,20 @@ require 'securerandom'
 
 include FactoryBot::Syntax::Methods
 FactoryBot.define do
+  factory :horario do
+    title { "MyString" }
+    categoria { "MyString" }
+    start_time { "2023-01-19 12:15:46" }
+    end_time { "2023-01-19 12:15:46" }
+  end
+
+  factory :consultation do
+    title { "MyString" }
+    description { "MyText" }
+    start_time { "2023-01-18 08:47:53" }
+    end_time { "2023-01-18 08:47:53" }
+  end
+
   factory :noticium do
     titulo { "MyString" }
     texto { "MyString" }

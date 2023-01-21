@@ -23,62 +23,68 @@
         <%= form.label 'Foto' %>
         <%= form.file_field :avatar, class: "form-control-file" %>
       </div> 
-      <div class="row">
-        <div class="col">
+      <div class="row g-3">
+        <div class="col-md-6">
           <div class="mb-3" id="form1">
             <%= form.label 'Primer Nombre', class: "form-label" %>
             <%= form.text_field :name, class: "form-control" %>
           </div>
         </div>
-        <div class="col">
+        <div class="col-md-6">
           <div class="mb-3" id="form1">
             <%= form.label 'Segundo Nombre', class: "form-label" %>
             <%= form.text_field :name2, class: "form-control" %>
           </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col">
+        <div class="col-md-6">
           <div class="mb-3" id="form1">
             <%= form.label 'Apellido Paterno', class: "form-label" %>
             <%= form.text_field :last_name1, class: "form-control" %>
           </div>
         </div>
-        <div class="col">
+        <div class="col-md-6">
           <div class="mb-3" id="form1">
             <%= form.label 'Apellido Materno', class: "form-label" %>
             <%= form.text_field :last_name2, class: "form-control" %>
           </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col">
+        <div class="col-md-2">
           <div class="mb-3" id="form1">
-            <%= form.label :edad, class: "form-label" %>
-            <%= form.text_field :edad, class: "form-control" %>
+            <%= form.label 'Dia', class: "form-label" %>
+            <%= form.text_field :last_name2, class: "form-control" %>
           </div>
         </div>
-        <div class="col">
+        <div class="col-md-2">
+          <div class="mb-3" id="form1">
+            <%= form.label 'Dia', class: "form-label" %>
+            <%= form.text_field :last_name2, class: "form-control" %>
+          </div>
+        </div>
+        <div class="col-md-2">
+          <div class="mb-3" id="form1">
+            <%= form.label 'Dia', class: "form-label" %>
+            <%= form.text_field :last_name2, class: "form-control" %>
+          </div>
+        </div>
+        <div class="col-md-6">
           <div class="mb-3" id="form1">
             <%= form.label 'RUT', class: "form-label" %>
-            <%= form.text_field :rut, class: "form-control" , placeholder:"Con puntos y guion"%>
+            <%= form.text_field :last_name2, class: "form-control" , placeholder:"Con puntos y guion" %>
           </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="col">
+        <div class="col-md-6">
           <div class="mb-3" id="form1">
           <%= form.label :mail, class: "form-label" %>
           <%= form.text_field :mail, class: "form-control" %>
           </div>
         </div>
-        <div class="col">
+        <div class="col-md-6">
           <div class="mb-3" id="form1">
             <%= form.label :telephone, class: "form-label" %>
             <%= form.text_field :telephone, class: "form-control", placeholder:"+569..." %>
           </div>
         </div>
-      </div> 
+      </div>
       <div class="form-group mt-2">
         <%= form.submit 'Guardar Jugador', class: 'btn btn-secondary' %>
         <%= link_to "Volver", :back, class: ["btn", "btn-secondary"] %>

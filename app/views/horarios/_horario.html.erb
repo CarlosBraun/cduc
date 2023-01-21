@@ -1,0 +1,30 @@
+<div id="<%= dom_id horario %>">
+  <p>
+    <strong>Titulo:</strong>
+    <%= horario.title %>
+  </p>
+
+  <p>
+    <strong>Categoria:</strong>
+    <%= horario.categoria %>
+  </p>
+  <p>
+    <strong>Lugar:</strong>
+    <%= horario.lugar %>
+  </p>
+  <p>
+    <strong>Dia:</strong>
+    <%= horario.dia %>
+  </p>
+
+  <p>
+    <strong>Hora de Comienzo:</strong>
+    <%= horario.start_time.strftime('%H:%M %p') %>
+  </p>
+
+  <p>
+    <strong>Hora de Termino:</strong>
+    <%= horario.end_time.strftime('%H:%M %p') %>
+  </p>
+
+</div>

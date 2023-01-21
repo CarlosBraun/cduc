@@ -31,3 +31,10 @@
 
 en:
   hello: "Hello world"
+
+es:
+  simple_calendar:
+    previous: "Anterior"
+    next: "Siguiente"
+    week: 'Semana'
+    mon: 'Lun'

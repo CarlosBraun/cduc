@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_30_010454) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_19_151545) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -39,12 +39,33 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_30_010454) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "consultations", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.boolean "allday"
+    t.datetime "start_time"
+    t.datetime "end_time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "entrenadors", force: :cascade do |t|
     t.string "mail"
     t.string "name"
     t.string "rol"
     t.string "last_name"
     t.string "telephone"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "horarios", force: :cascade do |t|
+    t.string "title"
+    t.string "categoria"
+    t.string "lugar"
+    t.string "dia"
+    t.datetime "start_time"
+    t.datetime "end_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

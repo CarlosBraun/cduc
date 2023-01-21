@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :horarios
+  resources :consultations
   resources :noticia
   resources :jugadors
   resources :entrenadors
