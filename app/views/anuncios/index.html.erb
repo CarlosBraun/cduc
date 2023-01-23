@@ -1,14 +1,50 @@
-<p style="color: green"><%= notice %></p>
-
-<h1>Anuncios</h1>
-
-<div id="anuncios">
-  <% @anuncios.each do |anuncio| %>
-    <%= render anuncio %>
-    <p>
-      <%= link_to "Show this anuncio", anuncio %>
-    </p>
-  <% end %>
+<div class="container mt-5 text-center">
+  <title>Anuncios</title>
+  <h1>Anuncios</h1>
 </div>
-
-<%= link_to "New anuncio", new_anuncio_path %>
+<style>
+  #row1{
+    margin-left: 10%;
+    margin-right: 10%;
+    width: 80%;
+    border: 1px solid black;
+    border-radius: 4px;
+    
+  }
+  #butoncito{
+    margin-top: 2%;
+    margin-bottom: 3%;
+    width: 30%;
+    margin-left: 35%;
+    margin-right: 35%;
+    align: center;
+  }
+  #deletebtn{
+    text-align: right;
+  }
+</style>
+<%= link_to "New anuncio", new_anuncio_path, class: ["btn", "btn-primary"], id:"butoncito" %>
+<div class="row ml-0" , id="row1">
+  <table class="table table-striped">
+    <thead>
+      <th scope="col">Titulo</th>
+      <th scope="col">Remitente</th>
+      <th scope="col">Actions</th>
+    </thead>
+    <tbody>
+      <% @anuncios.each do |anuncio| %>
+        <tr>
+          <td><%= anuncio.title %></td>
+          <td><%= anuncio.remitente %></td>
+          <td><%= link_to 'Eliminar', anuncio_path(anuncio), data: {turbo_method: :delete}, class: 'btn btn-danger' , id:"deletebtn" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  
+</div>
+<div class="container mt-5 text-left">
+  <p>
+    <%= link_to 'Home', root_path , class:"btn btn-secondary"%>
+  </p>
+</div>

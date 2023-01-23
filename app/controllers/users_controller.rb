@@ -24,6 +24,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     respond_to do |format|
       if @user.save
+        UserMailer.with(user: @user).welcome_email.deliver_later
         format.html { redirect_to user_url(@user), notice: "User was successfully created. Already Loged In." }
         format.json { render :show, status: :created, location: @user }
         @current_user = @user
