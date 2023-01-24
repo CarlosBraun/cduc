@@ -39,6 +39,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
+        UserMailer.with(user: @user).welcome_email.deliver_later
         format.html { redirect_to user_url(@user), notice: "User was successfully updated." }
         format.json { render :show, status: :ok, location: @user }
       else
@@ -66,6 +67,6 @@ class UsersController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def user_params
-      params.fetch(:user, {}).permit(:id, :name, :last_name, :email, :telephone, :flyer, :encrypted_password)
+      params.fetch(:user, {}).permit(:id, :name, :last_name, :email, :telephone, :avatar, :encrypted_password)
     end
 end

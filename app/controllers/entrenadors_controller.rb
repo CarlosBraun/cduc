@@ -65,6 +65,6 @@ class EntrenadorsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def entrenador_params
-      params.fetch(:entrenador, {})
+      params.fetch(:entrenador, {}).permit(:id, :name, :last_name, :mail, :telephone, :rol, :avatar)
     end
 end

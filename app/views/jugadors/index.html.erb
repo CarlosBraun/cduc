@@ -7,11 +7,11 @@
         }
 
         #newboton{
-          margin-left: 4.5rem ;
+          margin-left: 2rem ;
           width : 10em;
         }
         #conteiner_row{
-          margin-left: 7%;
+          margin-left: 10%;
           margin-right: 0px;
           margin-top: 2%;
           margin-bottom: 2%;
@@ -20,18 +20,28 @@
           width : auto;
           margin-left: 10%;
           margin-right: 10%;
-          background-color: white;
+          background-color: #d4d3d4;
+          background-opacity: 0.8;
         }
         #avatares{
           border-radius: 50%;
-          width: 40px;
-          height: 40px;
+          width: 45px;
+          height: 45px;
         }
         #tablaa{
           color: #212529;
         }
         #tablaa:hover{
           text-decoration: underline;
+        }
+        #tj{
+          width:100%;
+          border: 1px solid;
+          border-color: grey;
+          border-collapse:collapse;
+          border-radius:6px;
+          box-shadow: 0 0 0 1px #666;
+          background-color: #fff;
         }
       </style>
 <div id="jugadores">
@@ -46,7 +56,7 @@
   </div>
   <div class="card-header pb-0" id="lista">
     <div class="card-body">
-      <table class="table table-striped" style="width:100%">
+      <table class="table table-striped" style="width:100%" id="tj">
         <thead>
           <tr>
             <th></th>
@@ -59,11 +69,15 @@
         <tbody>
           <% @jugadors.each do |jugador| %>
             <tr data-link="<%= jugador_path(jugador) %>">
-                <td><%= image_tag jugador_avatar(jugador,40), id: "avatares" %></td>
-                <td style="vertical-align: middle;"><a id="tablaa" href="https://example.com"><%=jugador.name %></a></td>
-                <td style="vertical-align: middle;">Polivalente</td>
-                <td style="vertical-align: middle;">Todo Competidor</td>
-                <td style="vertical-align: middle;"><span class="badge bg-success">Active</span></td>
+                <td><%= image_tag(jugador.avatar.attached? ? jugador.avatar : "profile.png", id:"avatares") %></td>
+                <td style="vertical-align: middle;"><a id="tablaa" href="<%= jugador_url(jugador)%>"><%=jugador.name %></a></td>
+                <td style="vertical-align: middle;"><%=jugador.posicion %></td>
+                <td style="vertical-align: middle;"><%=jugador.categoria %></td>
+                <%=if jugador.deuda %>
+                  <td style="vertical-align: middle;"><span class="badge bg-success">Active</span></td>
+                <%=else%>
+                  <td style="vertical-align: middle;"><span class="badge bg-success">Active</span></td>
+                <%end%>
               </tr>
           <% end %>
         </tbody>

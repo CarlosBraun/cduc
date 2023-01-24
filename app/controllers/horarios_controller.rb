@@ -22,11 +22,13 @@ class HorariosController < ApplicationController
   # POST /horarios or /horarios.json
   def create
     array = params[:horario][:end_time].split(':')
-    params[:horario][:end_time] = DateTime.now.change({year: 3000 , hour: (array[0]).to_i , min: (array[1]).to_i})
+    array2 = params[:horario][:start_time].split(':')
+    params[:horario][:end_time] = DateTime.now.change({year: 2100 , hour: (array[0]).to_i + 1 , min: (array[1]).to_i})
+    params[:horario][:start_time] = DateTime.now.change({year: 2000 , hour: (array2[0]).to_i , min: (array2[1]).to_i})
     @horario = Horario.new(horario_params)
     respond_to do |format|
       if @horario.save
-        format.html { redirect_to horario_url(@horario), notice: "Horario was successfully created." }
+        format.html { redirect_to horario_url(@horario), notice: "Horario guardado correctamente." }
         format.json { render :show, status: :created, location: @horario }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,10 +40,12 @@ class HorariosController < ApplicationController
   # PATCH/PUT /horarios/1 or /horarios/1.json
   def update
     array = params[:horario][:end_time].split(':')
-    params[:horario][:end_time] = DateTime.now.change({year: 3000 , hour: (array[0]).to_i , min: (array[1]).to_i})
+    array2 = params[:horario][:start_time].split(':')
+    params[:horario][:end_time] = DateTime.now.change({year: 2100 , hour: (array[0]).to_i + 1 , min: (array[1]).to_i})
+    params[:horario][:start_time] = DateTime.now.change({year: 2000 , hour: (array2[0]).to_i , min: (array2[1]).to_i})
     respond_to do |format|
       if @horario.update(horario_params)
-        format.html { redirect_to horario_url(@horario), notice: "Horario was successfully updated." }
+        format.html { redirect_to horario_url(@horario), notice: "Horario actualizado correctamente." }
         format.json { render :show, status: :ok, location: @horario }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -55,7 +59,7 @@ class HorariosController < ApplicationController
     @horario.destroy
 
     respond_to do |format|
-      format.html { redirect_to horarios_url, notice: "Horario was successfully destroyed." }
+      format.html { redirect_to horarios_url, notice: "Horario eliminado correctamente." }
       format.json { head :no_content }
     end
   end

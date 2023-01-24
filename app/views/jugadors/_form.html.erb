@@ -13,80 +13,95 @@
     margin-left: 10%;
     margin-right: 10%;
   }
+  #datos{
+    margin-bottom: 2%;
+  }
+  select{
+    width: 100%;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    background-color: #fff; 
+  }
+  #botones{
+    margin-top: 2%;
+  }
 
 </style>
 <div class="row ml-0" id="conteiner_3">
   <div class="col" id=formspace>
     <%= form_with model: jugador, local: true do |form| %>
       <%= errors_for jugador %>
+      <h2 id="datos">Datos Personales</h2>
       <div class="mb-3" id="form1">
         <%= form.label 'Foto' %>
-        <%= form.file_field :avatar, class: "form-control-file" %>
+        <%= form.file_field :avatar, class: "form-control-file"  %>
       </div> 
       <div class="row g-3">
         <div class="col-md-6">
           <div class="mb-3" id="form1">
-            <%= form.label 'Primer Nombre', class: "form-label" %>
+            <%= form.label 'Primer Nombre *', class: "form-label" %>
             <%= form.text_field :name, class: "form-control" %>
           </div>
         </div>
         <div class="col-md-6">
           <div class="mb-3" id="form1">
-            <%= form.label 'Segundo Nombre', class: "form-label" %>
+            <%= form.label 'Segundo Nombre *', class: "form-label" %>
             <%= form.text_field :name2, class: "form-control" %>
           </div>
         </div>
         <div class="col-md-6">
           <div class="mb-3" id="form1">
-            <%= form.label 'Apellido Paterno', class: "form-label" %>
+            <%= form.label 'Apellido Paterno *', class: "form-label" %>
             <%= form.text_field :last_name1, class: "form-control" %>
           </div>
         </div>
         <div class="col-md-6">
           <div class="mb-3" id="form1">
-            <%= form.label 'Apellido Materno', class: "form-label" %>
-            <%= form.text_field :last_name2, class: "form-control" %>
-          </div>
-        </div>
-        <div class="col-md-2">
-          <div class="mb-3" id="form1">
-            <%= form.label 'Dia', class: "form-label" %>
-            <%= form.text_field :last_name2, class: "form-control" %>
-          </div>
-        </div>
-        <div class="col-md-2">
-          <div class="mb-3" id="form1">
-            <%= form.label 'Dia', class: "form-label" %>
-            <%= form.text_field :last_name2, class: "form-control" %>
-          </div>
-        </div>
-        <div class="col-md-2">
-          <div class="mb-3" id="form1">
-            <%= form.label 'Dia', class: "form-label" %>
+            <%= form.label 'Apellido Materno *', class: "form-label" %>
             <%= form.text_field :last_name2, class: "form-control" %>
           </div>
         </div>
         <div class="col-md-6">
           <div class="mb-3" id="form1">
-            <%= form.label 'RUT', class: "form-label" %>
-            <%= form.text_field :last_name2, class: "form-control" , placeholder:"Con puntos y guion" %>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="mb-3" id="form1">
-          <%= form.label :mail, class: "form-label" %>
+          <%= form.label "Correo *", class: "form-label" %>
           <%= form.text_field :mail, class: "form-control" %>
           </div>
         </div>
         <div class="col-md-6">
           <div class="mb-3" id="form1">
-            <%= form.label :telephone, class: "form-label" %>
+            <%= form.label 'RUT *', class: "form-label" %>
+            <%= form.text_field :rut, class: "form-control" , placeholder:"Con puntos y guion" %>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="mb-3" id="form1">
+            <%= form.label "Fecha de Naciemiento *", class: "form-label" %>
+            <%= form.date_field :fecha , class: "form-control" %>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="mb-3" id="form1">
+            <%= form.label "Teléfono *", class: "form-label" %>
             <%= form.text_field :telephone, class: "form-control", placeholder:"+569..." %>
           </div>
         </div>
+        <h2 id="datos">Informacion del Jugador</h2>
+        <div class="col-6">
+          <div class="mb-3" id="form1">
+            <%= form.label "Categoría", class: "form-label" %>
+            <%= form.select :categoria, ["Todas","Todo Competidor", "Senior", "Sub 20", "Sub 19", "Sub 18", "Sub 17", "Sub 16", "Sub 15", "Sub 14", "Sub 13", "Sub 12", "Escuelita"], class: "form-control" %>
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="mb-3" id="form1">
+            <%= form.label "Posición", class: "form-label" %>
+            <%= form.select :posicion, ["Polivalente","Central", "Punta", "Opuesto", "Armador", "Libero"], class: "form-control" %>
+          </div>
+        </div>
       </div>
-      <div class="form-group mt-2">
-        <%= form.submit 'Guardar Jugador', class: 'btn btn-secondary' %>
+      <div class="form-group mt-2 text-center" id="botones">
+        <%= form.submit 'Guardar Jugador', class: 'btn btn-primary' %>
         <%= link_to "Volver", :back, class: ["btn", "btn-secondary"] %>
       </div>
     <% end %>

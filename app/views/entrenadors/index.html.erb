@@ -1,13 +1,14 @@
 <p style="color: green"><%= notice %></p>
-
+<title>Cuerpo Técnico</title>
 <div id="jugadores">
-  <h1 id="titulo1">Entrenadores</h1>
-  <div class="row" id="conteiner_row">
+  <h1 id="titulo1">Cuerpo Técnico</h1>
+  <div class="row justify-content-center" id="conteiner_row">
     <div class="col-md-auto">
     <a class="btn btn-primary" id="newboton" href= <%= new_entrenador_path %> role="button">Añadir Entrenador</a>
     </div>
 
   </div>
+
 <div id="entrenadors">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css" integrity="sha256-3sPp8BkKUE7QyPSl6VfBByBroQbKxKG7tsusY2mhbVY=" crossorigin="anonymous" />
   <div class="container">
@@ -23,11 +24,11 @@
                   <a href="#" class="zmdi zmdi-instagram"></a>
               </span>
               <span class="img-holder d-inline-block">
-                <%= image_tag entrenador_avatar(entrenador,40), id: "avatares" %>
+                <a href= <%= entrenador_url(entrenador)%>> <%= image_tag(entrenador.avatar.attached? ? entrenador.avatar : "profile.png", id:"avatares") %></a>
               </span>
             </div>
             <div class="team-content">
-              <h5 class="mb-2" id="tarjeta2"><%= entrenador.name + " " + entrenador.last_name %></h5>
+              <h5 class="mb-2" id="tarjeta2"><%=entrenador.name + " " + entrenador.last_name%></h5>
               <p class="text-uppercase mb-0"><%= entrenador.rol %></p>
             </div>
           </div>
@@ -36,6 +37,7 @@
     </div>
   </div>
 </div>
+
 
 <style>
   .team-item {
@@ -170,6 +172,9 @@
   #tarjeta2{
     margin-bottom: .5rem!important;
   }
+  #tarjeta2:hover{
+    color: white;
+  }
 
   h5 {
       font-size: 21px;
@@ -179,14 +184,16 @@
       margin-bottom: 30px;
   }
   #conteiner_row{
-    margin-left: 7%;
     margin-right: 0px;
     margin-top: 2%;
     margin-bottom: 2%;
   }
   #titulo1{
       margin-top: 2%;
-      margin-left: 8%;
+      text-align: center;
     }
+  .container{
+    margin-bottom: 4%;
+  }
 </style>
     

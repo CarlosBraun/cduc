@@ -287,10 +287,12 @@ DEPENDENCIES
   image_processing (~> 1.2)
   importmap-rails
   jbuilder
+  mail (~> 2.7)
   pagy (~> 5.10, >= 5.10.1)
   puma (~> 5.0)
   rails (~> 7.0.2, >= 7.0.2.2)
   rails-i18n (~> 7.0.0)
+  ruby-vips
   sassc-rails
   selenium-webdriver
   simple_calendar (~> 2.4)

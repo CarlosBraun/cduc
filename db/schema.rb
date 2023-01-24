@@ -14,8 +14,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_21_164014) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
-    t.integer "record_id", null: false
-    t.integer "blob_id", null: false
+    t.bigint "record_id", null: false
+    t.bigint "blob_id", null: false
     t.datetime "created_at", null: false
     t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
@@ -34,7 +34,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_21_164014) do
   end
 
   create_table "active_storage_variant_records", force: :cascade do |t|
-    t.integer "blob_id", null: false
+    t.bigint "blob_id", null: false
     t.string "variation_digest", null: false
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
@@ -82,16 +82,19 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_21_164014) do
   create_table "jugadors", force: :cascade do |t|
     t.string "mail"
     t.string "name"
-    t.string "last_name"
+    t.string "name2"
+    t.string "last_name1"
+    t.string "last_name2"
+    t.string "rut"
     t.string "posicion"
     t.string "categoria"
     t.string "genero"
-    t.integer "edad"
     t.integer "altura"
     t.integer "embergadura"
     t.integer "peso"
     t.string "telephone"
-    t.string "deuda"
+    t.boolean "deuda"
+    t.datetime "fecha"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

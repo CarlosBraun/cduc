@@ -92,3 +92,7 @@ gem 'gravatar_image_tag' , github: 'mdeering/gravatar_image_tag'
 gem 'simple_calendar', "~> 2.4"
 
 gem 'rails-i18n', '~> 7.0.0'
+
+gem "ruby-vips"
+
+gem 'mail', '~> 2.7'

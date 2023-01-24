@@ -12,26 +12,29 @@
   <title>Horarios</title>
   <a class="btn btn-primary" style="margin-bottom: 3%" id="newboton" href= <%= new_horario_path %> role="button">Nuevo Horario</a>
   <%= week_calendar(number_of_days: 5,events: @horarios) do |date , horarios| %>
-    <div class="card">
-      <%= date.strftime('%d') %>
-    </div>
     <% horarios.each do |horario|%>
-      <div class="card-header">
-        <div class="card-title">
-          <%= link_to horario.categoria , horario ,class:'navlink'  %>
+      <% if date.strftime("%A") == "Monday" && horario.dia == "Lunes" || date.strftime("%A") == "Tuesday" && horario.dia == "Martes" || date.strftime("%A") == "Wednesday" && horario.dia == "Miercoles" || date.strftime("%A") == "Thursday" && horario.dia == "Jueves" || date.strftime("%A") == "Friday" && horario.dia == "Viernes"  %>
+        <div class="card-header">
+          <div class="card-title">
+            <%= link_to horario.categoria , horario ,class:'navlink'  %>
+            
+          </div>
+          <div class="card-title">
+            <%= link_to horario.lugar , horario ,class:'navlink'  %>
+          </div>
+          <div class="card">
+            <% if horario.end_time? %>
+              <p class="card-text">
+                <%= link_to "Desde " + horario.start_time.strftime('%I:%M %p')+" hasta " +horario.end_time.strftime('%I:%M %p'), horario ,class:'navlink'  %>
+              </p>
+            <% else %>
+              <p class="card-text">
+                <%= link_to "Desde " + horario.start_time.strftime('%I:%M %p'), horario ,class:'navlink'  %>
+              </p>
+            <%end%>
+          </div>
         </div>
-        <div class="card">
-          <% if horario.end_time? %>
-            <p class="card-text">
-              <%= link_to "Desde " + horario.start_time.strftime('%I:%M %p')+" hasta " +horario.end_time.strftime('%I:%M %p'), horario ,class:'navlink'  %>
-            </p>
-          <% else %>
-            <p class="card-text">
-              <%= link_to "Desde " + horario.start_time.strftime('%I:%M %p'), horario ,class:'navlink'  %>
-            </p>
-          <%end%>
-        </div>
-      </div>
+      <%end%>
     <%end%>
   <%end%>
 </div>
