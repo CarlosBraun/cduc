@@ -1,13 +1,101 @@
-<p style="color: green"><%= notice %></p>
-
-<%= render @entrenador %>
-
-<div>
-  <%= link_to "Edit this entrenador", edit_entrenador_path(@entrenador) %> |
-  <%= link_to "Back to entrenadors", entrenadors_path %>
-
-  <%= button_to "Destroy this entrenador", @entrenador, method: :delete %>
-</div>
-
-
 <title><%=@entrenador.name[0]+". "+@entrenador.last_name + " | "+ @entrenador.rol%></title>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
+<section id="about-section" class="pt-5 pb-5">
+    <div class="container wrapabout">
+        <div class="red"></div>
+        <div class="row" id="centerr">
+            <div class="col-lg-6 align-items-center justify-content-left d-flex mb-5 mb-lg-0">
+                <div class="blockabout" id="xdd">
+                    <div class="blockabout-inner text-center text-sm-start"id="xdd">
+                        <div class="title-big pb-3 mb-3">
+                            <h3><%=@entrenador.name%> <%=@entrenador.last_name%></h3>
+                            <h4 class="description-p text-muted pe-0 pe-lg-0">
+                            <%= @entrenador.rol%>
+                        </h4>
+                        </div>
+                        <p class="description-p text-muted pe-0 pe-lg-0">Lorem ipsum dolor sit amet consectetur \n adipisicing elit. Natus quas optio reiciendis deleniti voluptatem facere.</p>
+                        <p class="description-p text-muted pe-0 pe-lg-0">Lorem ipsum dolor sit amet consectetur \n adipisicing elit. Natus quas optio reiciendis deleniti voluptatem facere.</p>
+                        <p class="description-p text-muted pe-0 pe-lg-0">Lorem ipsum dolor sit amet consectetur \n adipisicing elit. Natus quas optio reiciendis deleniti voluptatem facere.</p>
+                        <p class="description-p text-muted pe-0 pe-lg-0">Lorem ipsum dolor sit amet consectetur \n adipisicing elit. Natus quas optio reiciendis deleniti voluptatem facere.</p>
+                        <p class="description-p text-muted pe-0 pe-lg-0">Lorem ipsum dolor sit amet consectetur \n adipisicing elit. Natus quas optio reiciendis deleniti voluptatem facere.</p>
+                        <p class="description-p text-muted pe-0 pe-lg-0">Lorem ipsum dolor sit amet consectetur \n adipisicing elit. Natus quas optio reiciendis deleniti voluptatem facere.</p>
+                        
+                        
+                        <div class="sosmed-horizontal pt-3 pb-3">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                            <a href="#"><i class="fa fa-pinterest"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 mt-5 mt-lg-0">
+                <figure class="potoaboutwrap">
+                    <%= image_tag(@entrenador.avatar.attached? ? @entrenador.avatar : "profile.png", id:"avatares") %>
+                </figure>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="container mt-5 text-center">
+  <div>
+    <%= link_to "Editar Datos", edit_entrenador_path(@entrenador) , class: ["btn", "btn-primary"] %> 
+    <%= link_to "Volver a Entrenadores", entrenadors_path , class: ["btn", "btn-secondary"] %>
+    <%= button_to "Eliminar Entrenador", @entrenador, method: :delete , class: 'btn btn-danger', id:'botone' %>
+  </div>
+</div>
+<style>
+  #botone{
+    margin-top: 1%;
+  }
+  #centerr{
+    margin-left: 10%;
+  }
+  #avatares{
+    width: 60%;
+    height: auto;
+    border-radius: 25px;
+  }
+  #xdd{
+    border-radius: 25px;
+  }
+  #about-section {
+    position: relative;
+  }
+
+  .blockabout {
+      padding: 20px;
+      background: white;
+  }
+
+  .blockabout-inner {
+      padding: 30px;
+      border: 1px solid rgba(32, 33, 36, 0.1);
+  }
+
+  .sosmed-horizontal a i {
+      border: 1px solid #070707;
+      border-radius: 50%;
+      color: #070707;
+      display: inline-block;
+      height: 30px;
+      width: 30px;
+      line-height: 30px;
+      margin: auto 3px;
+      font-size: 15px;
+      text-align: center;
+      transition: all 0.3s;
+  }
+
+  .rey-btn {
+      border: 2px solid #070707;
+      padding: 10px 40px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 13px;
+      font-weight: 700;
+      border-radius: 50px;
+      transition: all 0.3s;
+  }
+</style>

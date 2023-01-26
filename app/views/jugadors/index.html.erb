@@ -43,6 +43,22 @@
           box-shadow: 0 0 0 1px #666;
           background-color: #fff;
         }
+        #lel{
+          text-align: center;
+          width: 60%;
+          background-color: red;
+        }
+        #lel:hover,#lel2:hover{
+          text-decoration: none;
+          color: white;
+          opacity: 0.8;
+        }
+        #lel2{
+          text-align: center;
+          width: 60%;
+          background-color: green;
+
+        }
       </style>
 <div id="jugadores">
   <h1>Jugadores</h1>
@@ -70,13 +86,13 @@
           <% @jugadors.each do |jugador| %>
             <tr data-link="<%= jugador_path(jugador) %>">
                 <td><%= image_tag(jugador.avatar.attached? ? jugador.avatar : "profile.png", id:"avatares") %></td>
-                <td style="vertical-align: middle;"><a id="tablaa" href="<%= jugador_url(jugador)%>"><%=jugador.name %></a></td>
+                <td style="vertical-align: middle;"><a id="tablaa" href="<%= jugador_url(jugador)%>"><%=jugador.name%> <%=jugador.last_name1 %></a></td>
                 <td style="vertical-align: middle;"><%=jugador.posicion %></td>
                 <td style="vertical-align: middle;"><%=jugador.categoria %></td>
-                <%=if jugador.deuda %>
-                  <td style="vertical-align: middle;"><span class="badge bg-success">Active</span></td>
-                <%=else%>
-                  <td style="vertical-align: middle;"><span class="badge bg-success">Active</span></td>
+                <%if jugador.deuda == true %>
+                  <td style="vertical-align: middle; "><a href="<%= jugador_url(jugador)%>" class="badge badge-pill badge-danger" id="lel">Deudor</a></td>
+                <%else%>
+                  <td style="vertical-align: middle; "><a href="<%= jugador_url(jugador)%>" class="badge badge-pill badge-danger" id="lel2">Al Día</a></td>
                 <%end%>
               </tr>
           <% end %>
@@ -85,6 +101,7 @@
     </div>
   </div>
 </div>
+
 
 
 			

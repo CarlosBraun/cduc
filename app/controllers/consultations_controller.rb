@@ -40,7 +40,7 @@ class ConsultationsController < ApplicationController
   def update
     respond_to do |format|
       if @consultation.update(consultation_params)
-        format.html { redirect_to consultation_url(@consultation), notice: "Consultation was successfully updated." }
+        format.html { redirect_to consultation_path, notice: "Consultation was successfully updated." }
         format.json { render :show, status: :ok, location: @consultation }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -67,6 +67,6 @@ class ConsultationsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def consultation_params
-      params.require(:consultation).permit(:title, :description0, :allday, :start_time, :end_time)
+      params.require(:consultation).permit(:title, :description, :allday, :start_time, :end_time)
     end
 end

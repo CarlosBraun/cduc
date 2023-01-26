@@ -94,7 +94,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_21_164014) do
     t.integer "peso"
     t.string "telephone"
     t.boolean "deuda"
-    t.datetime "fecha"
+    t.datetime "fecha" , default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

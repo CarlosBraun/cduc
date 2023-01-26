@@ -65,6 +65,6 @@ class JugadorsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def jugador_params
-      params.fetch(:jugador, {}).permit(:id, :name, :last_name, :mail, :telephone, :avatar)
+      params.fetch(:jugador, {}).permit(:id, :name, :last_name, :mail,:posicion, :categoria , :telephone, :avatar)
     end
 end

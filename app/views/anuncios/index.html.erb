@@ -22,29 +22,79 @@
   #deletebtn{
     text-align: right;
   }
+  body{
+    margin-top:20px;
+
+    text-align: left;
+    background-color: #e2e8f0;    
+  }
+  .card {
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,.1), 0 1px 2px 0 rgba(0,0,0,.06);
+  }
+
+  .card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 0 solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+  }
+
+  .card-body {
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 1rem;
+  }
+  #foto.col{
+    width: min-content;
+  }
+  #xd{
+    margin-top: 1%;
+
+  }
+  .media-body{
+    margin-top: 1%;
+  }
+  #lineas{
+    white-space: pre-line
+  }
 </style>
-<%= link_to "New anuncio", new_anuncio_path, class: ["btn", "btn-primary"], id:"butoncito" %>
-<div class="row ml-0" , id="row1">
-  <table class="table table-striped">
-    <thead>
-      <th scope="col">Titulo</th>
-      <th scope="col">Remitente</th>
-      <th scope="col">Actions</th>
-    </thead>
-    <tbody>
-      <% @anuncios.each do |anuncio| %>
-        <tr>
-          <td><%= anuncio.title %></td>
-          <td><%= anuncio.remitente %></td>
-          <td><%= link_to 'Eliminar', anuncio_path(anuncio), data: {turbo_method: :delete}, class: 'btn btn-danger' , id:"deletebtn" %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
-  
-</div>
-<div class="container mt-5 text-left">
-  <p>
-    <%= link_to 'Home', root_path , class:"btn btn-secondary"%>
-  </p>
+<%= link_to "Nuevo Anuncio", new_anuncio_path, class: ["btn", "btn-primary"], id:"butoncito" %>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" integrity="sha256-46r060N2LrChLLb5zowXQ72/iKKNiw/lAmygmHExk/o=" crossorigin="anonymous" />
+<div class="container">
+<div class="main-body p-0">
+        <!-- Inner main body -->
+        <% @anuncios.reverse_each do |anuncio| %>
+        <!-- Forum List -->
+
+            <div class="card mb-2">
+                <div class="card-body p-2 p-sm-3">
+                    <div class="media forum-item">
+                        <div class="row" >
+                            <div class="col-md-auto" id="foto">
+                            <a href="#" data-toggle="collapse" data-target=".forum-content"><img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="mr-3 rounded-circle" width="50" alt="User" /></a>
+                            </div>
+                            <div class="col-md-auto" id="xd" >
+                                <h6 ><a href="#" data-toggle="collapse" data-target=".forum-content" class="text-body"><%= anuncio.title%></a></h6>
+                                <p class="text-secondary" id="lineas">
+                                <%= anuncio.description%>
+                            </p>
+                            </div>
+                        </div>
+                        <div class="media-body">
+                            <p class="text-muted"><%=anuncio.remitente%> <span class="text-secondary font-weight-bold"> <%= time_ago_in_words(anuncio.created_at) %></span></p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        <!-- /Forum List -->
+        <%end%>
 </div>
