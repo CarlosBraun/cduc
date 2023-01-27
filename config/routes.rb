@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :evaluacions
   default_url_options :host => "localhost"
   resources :anuncios
   resources :horarios

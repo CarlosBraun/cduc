@@ -10,9 +10,6 @@ class CreateJugadors < ActiveRecord::Migration[7.0]
       t.string :posicion
       t.string :categoria
       t.string :genero
-      t.integer :altura
-      t.integer :embergadura
-      t.integer :peso
       t.string :telephone
       t.boolean :deuda
       t.datetime :fecha

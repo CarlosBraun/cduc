@@ -20,3 +20,9 @@ function logout() {
 $("tr[data-link]").click(function() {
   window.location = $(this).data("link")
 })
+
+$(document).ready(function () {
+  $('select').selectize({
+      sortField: 'text'
+  });
+});

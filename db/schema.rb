@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_21_164014) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_26_235722) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -68,6 +68,22 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_21_164014) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "evaluacions", force: :cascade do |t|
+    t.string "title"
+    t.integer "altura"
+    t.integer "embergadura"
+    t.integer "peso"
+    t.integer "max_pres"
+    t.integer "max_squat"
+    t.integer "max_dl"
+    t.integer "max_jump"
+    t.integer "max_v1"
+    t.integer "max_v2"
+    t.time "max_time"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "horarios", force: :cascade do |t|
     t.string "title"
     t.string "categoria"
@@ -89,12 +105,9 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_21_164014) do
     t.string "posicion"
     t.string "categoria"
     t.string "genero"
-    t.integer "altura"
-    t.integer "embergadura"
-    t.integer "peso"
     t.string "telephone"
     t.boolean "deuda"
-    t.datetime "fecha" , default: false
+    t.datetime "fecha"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
