@@ -4,10 +4,19 @@ class EvaluacionsController < ApplicationController
   # GET /evaluacions or /evaluacions.json
   def index
     @evaluacions = Evaluacion.all
+    if params[:view] == "edit"
+      render 'index2'
+    else
+      render 'index1'
+    end
   end
 
   # GET /evaluacions/1 or /evaluacions/1.json
   def show
+  end
+
+  def data
+    @evaluacions = Evaluacion.all
   end
 
   # GET /evaluacions/new
@@ -65,6 +74,6 @@ class EvaluacionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def evaluacion_params
-      params.fetch(:evaluacion, {})
+      params.require(:evaluacion).permit(:title, :altura, :embergadura, :peso, :max_pres, :max_squat , :max_dl , :max_jump_incompleto , :max_jump_completo , :max_jump_libre , :max_jump_carrera , :max_v1 , :max_v2 , :max_time, :jugador_id)
     end
 end

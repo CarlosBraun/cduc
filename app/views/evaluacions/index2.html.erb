@@ -1,0 +1,101 @@
+<div class="container mt-5 text-center">
+  <title>evaluacions</title>
+  <h1>evaluacions</h1>
+  <%= link_to "Volver a Evaluaciones", evaluacions_path, class: ["btn", "btn-primary"], id:"butoncito" %>
+</div>
+<style>
+  #row1{
+    margin-left: 10%;
+    margin-right: 10%;
+    width: 80%;
+    border: 1px solid black;
+    border-radius: 4px;
+    
+  }
+  #butoncito{
+    margin-top: 2%;
+    margin-bottom: 3%;
+    width: 30%;
+    margin-left: 35%;
+    margin-right: 35%;
+    align: center;
+  }
+  #deletebtn{
+    text-align: right;
+  }
+  body{
+    margin-top:20px;
+
+    text-align: left;
+    background-color: #e2e8f0;    
+  }
+  .card {
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,.1), 0 1px 2px 0 rgba(0,0,0,.06);
+  }
+
+  .card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 0 solid rgba(0,0,0,.125);
+    border-radius: .25rem;
+  }
+
+  .card-body {
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 1rem;
+  }
+  #foto.col{
+    width: min-content;
+  }
+  #xd{
+    margin-top: 1%;
+
+  }
+  .media-body{
+    margin-top: 1%;
+  }
+  #lineas{
+    white-space: pre-line
+  }
+</style>
+<%= link_to "Nueva Evaluacion", new_evaluacion_path, class: ["btn", "btn-primary"], id:"butoncito" %>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" integrity="sha256-46r060N2LrChLLb5zowXQ72/iKKNiw/lAmygmHExk/o=" crossorigin="anonymous" />
+<div class="container">
+<div class="main-body p-0">
+        <!-- Inner main body -->
+        <% @evaluacions.reverse_each do |evaluacion| %>
+        <!-- Forum List -->
+
+            <div class="card mb-2">
+                <div class="card-body p-2 p-sm-3">
+                    <div class="media forum-item">
+                        <div class="row" >
+                            <div class="col-md-auto" id="foto">
+                            <a href="#" data-toggle="collapse" data-target=".forum-content"><img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="mr-3 rounded-circle" width="50" alt="User" /></a>
+                            </div>
+                            <div class="col-md-auto" id="xd" >
+                                <h6 ><a href="#" data-toggle="collapse" data-target=".forum-content" class="text-body"><%= evaluacion.title%></a></h6>
+                                <p class="text-secondary" id="lineas">
+                                <%= evaluacion.id%>
+                            </p>
+                            </div>
+                        </div>
+                        <div class="media-body">
+                            <p class="text-muted"><%=evaluacion.id%> <span class="text-secondary font-weight-bold"> <%= time_ago_in_words(evaluacion.created_at) %></span></p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        <!-- /Forum List -->
+        <%end%>
+</div>

@@ -1,10 +1,11 @@
-<h2 style="text-align: center;">Accede a tu Cuenta</h2>
 <title>Accede a tu Cuenta</title>
 <style>
-  container{
-    a.color : blue;
-    color: blue;
-    text-decoration: underline;
+  #xdd{
+    margin-top: 5% ;
+    margin-left: 15%;
+    margin-right: 15%;
+    width: 70%;
+    color: black;
   }
   .a:hover {
     color: blue;
@@ -15,8 +16,9 @@
   }
   
 </style>
-<div class="container" style="width: 700px;">
-<div class="row ml-0 mt-3" style="margin-right:0;" >
+<div class="container" id="xdd" >
+<h2 style="text-align: center;">Accede a tu Cuenta</h2>
+<div class="row ml-0 mt-3" >
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="mb-3 col-4" >
     <%= f.label :email, class: "form-label"  %><br />

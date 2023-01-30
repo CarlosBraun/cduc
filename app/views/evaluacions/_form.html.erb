@@ -28,16 +28,26 @@
   }
 
 </style>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js" integrity="sha256-+C0A5Ilqmu4QcSPxrlGpaZxJ04VjsRjKu+G82kl5UJk=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap3.min.css" integrity="sha256-ze/OEYGcFbPRmvCnrSeKbRTtjG4vGLHXgOqsyLFTRjg=" crossorigin="anonymous" />
+
 <div class="row ml-0" id="conteiner_3">
   <div class="col" id=formspace>
     <%= form_with model: evaluacion, local: true do |form| %>
       <%= errors_for evaluacion %>
       <h2 id="datos">Datos de la Evaluación </h2>
       <div class="row g-3">
-        <div class="col-md-12">
+        <div class="col-md-6">
           <div class="mb-3" id="form1">
             <%= form.label 'Nombre de la Evaluación', class: "form-label" %>
             <%= form.text_field :title, class: "form-control" %>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="mb-3" id="form1">
+            <%= form.label :jugador_id, class: "form-label" %>
+            <%= form.collection_select(:jugador_id, Jugador.all.order(name: :asc), :id, :name, {}, { class: "form-control" }) %>
           </div>
         </div>
         <div class="col-md-4">
@@ -73,7 +83,7 @@
         <div class="col-md-6">
           <div class="mb-3" id="form1">
             <%= form.label "Maximal Peso Muerto", class: "form-label" %>
-            <%= form.date_field :max_dl , class: "form-control", placeholder:"Kg" %>
+            <%= form.text_field :max_dl , class: "form-control", placeholder:"Kg" %>
           </div>
         </div>
         <div class="col-md-6">

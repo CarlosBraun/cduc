@@ -1,31 +1,26 @@
-<h2 class="titulo">Registrate</h2>
 <title> Voley UC | Registro</title>
 <style>
   h2.titulo{
     text-align: center ;
-;
   }
-  container{
-    a.color : blue;
-    color: blue;
-    text-decoration: underline;
+  #xd{
+    margin-top: 5% ;
+    margin-left: 15%;
+    margin-right: 15%;
+    width: 70%;
+
+    color: black;
   }
   .a:hover {
     color: blue;
     text-decoration: underline;
   }
   .col-4{
-    width: 100% ;
-  }
-  .mt-3{
-    margin-top: -45em !important;
-  }
-  footer{
-    margin-top: -8.5em !important;
-    width: 100% ;
+    width: 100%;
   }
 </style>
-<div class="container" style="width: 700px; margin-top: 40em">
+<div class="container" id="xd">
+<h2 class="titulo">Registrate</h2>
   <div class="row ml-0 mt-3" >
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
       <%= errors_for resource %>
