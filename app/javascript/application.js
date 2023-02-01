@@ -2,6 +2,8 @@
 import "@hotwired/turbo-rails"
 import "controllers"
 import "bootstrap"
+import "custom/search"
+import "custom/ticket"
 
 import { far } from "@fortawesome/free-regular-svg-icons"
 import { fas } from "@fortawesome/free-solid-svg-icons"
@@ -16,16 +18,6 @@ function logout() {
     $current_user = User.new
     return true;
   }
-
-$("tr[data-link]").click(function() {
-  window.location = $(this).data("link")
-})
-
-$(document).ready(function () {
-  $('select').selectize({
-      sortField: 'text'
-  });
-});
 
 const btnAdd = document.querySelector('#btnAdd');
 const btnRemove = document.querySelector('#btnRemove');

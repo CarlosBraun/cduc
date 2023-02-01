@@ -69,33 +69,30 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" integrity="sha256-46r060N2LrChLLb5zowXQ72/iKKNiw/lAmygmHExk/o=" crossorigin="anonymous" />
 <div class="container">
-<div class="main-body p-0">
+  <div class="main-body p-0">
         <!-- Inner main body -->
-        <% @evaluacions.reverse_each do |evaluacion| %>
-        <!-- Forum List -->
+    <head>
+        <title>JavaScript Selected Value</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+    <body>
+        <div id="container">
+            <form>
+                <label for="framework">Framework:</label>
+                <input type="text" id="framework" placeholder="Enter a framework" autocomplete="off">
 
-            <div class="card mb-2">
-                <div class="card-body p-2 p-sm-3">
-                    <div class="media forum-item">
-                        <div class="row" >
-                            <div class="col-md-auto" id="foto">
-                            <a href="#" data-toggle="collapse" data-target=".forum-content"><img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="mr-3 rounded-circle" width="50" alt="User" /></a>
-                            </div>
-                            <div class="col-md-auto" id="xd" >
-                                <h6 ><a href="#" data-toggle="collapse" data-target=".forum-content" class="text-body"><%= evaluacion.title%></a></h6>
-                                <p class="text-secondary" id="lineas">
-                                <%= evaluacion.id%>
-                            </p>
-                            </div>
-                        </div>
-                        <div class="media-body">
-                            <p class="text-muted"><%=evaluacion.id%> <span class="text-secondary font-weight-bold"> <%= time_ago_in_words(evaluacion.created_at) %></span></p>
-                        </div>
-                    </div>
+                <button id="btnAdd">Add</button>
 
-                </div>
-            </div>
+                <label for="list">Framework List:</label>
+                <select id="list" name="list" multiple>
 
-        <!-- /Forum List -->
-        <%end%>
+                </select>
+                <button id="btnRemove">Remove Selected Framework</button>
+            </form>
+        </div>
+        <script src="javascript/application.js"></script>
+    </body>
+  </div>
 </div>

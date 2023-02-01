@@ -47,7 +47,7 @@
         <div class="col-md-6">
           <div class="mb-3" id="form1">
             <%= form.label :jugador_id, class: "form-label" %>
-            <%= form.collection_select(:jugador_id, Jugador.all.order(name: :asc), :id, :name, {}, { class: "form-control" }) %>
+            <%= form.collection_select(:jugador_id, Jugador.all.order(fullname: :asc), :id, :fullname, {}, { class: "form-control" }) %>
           </div>
         </div>
         <div class="col-md-4">

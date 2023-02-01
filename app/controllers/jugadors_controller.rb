@@ -21,6 +21,7 @@ class JugadorsController < ApplicationController
 
   # POST /jugadors or /jugadors.json
   def create
+    params[:jugador][:fullname] = params[:jugador][:name] +" "+params[:jugador][:name2] +" "+params[:jugador][:last_name1] +" "+params[:jugador][:last_name2]
     @jugador = Jugador.new(jugador_params)
 
     respond_to do |format|
@@ -37,6 +38,7 @@ class JugadorsController < ApplicationController
   # PATCH/PUT /jugadors/1 or /jugadors/1.json
   def update
     respond_to do |format|
+      params[:jugador][:fullname] = params[:jugador][:name] +" "+params[:jugador][:name2] +" "+params[:jugador][:last_name1] +" "+params[:jugador][:last_name2]
       if @jugador.update(jugador_params)
         format.html { redirect_to jugador_url(@jugador), notice: "Jugador was successfully updated." }
         format.json { render :show, status: :ok, location: @jugador }
@@ -65,6 +67,6 @@ class JugadorsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def jugador_params
-      params.fetch(:jugador, {}).permit(:id, :name, :last_name, :mail,:posicion, :categoria , :telephone, :avatar)
+      params.fetch(:jugador, {}).permit(:id, :name, :last_name1, :mail,:posicion, :categoria, :fecha , :telephone, :avatar, :fullname, :name2, :last_name2, :rut, :genero)
     end
 end

@@ -3,9 +3,15 @@ class ConsultationsController < ApplicationController
 
   # GET /consultations or /consultations.json
   def index
-    @consultations = Consultation.where(
-      start_time: Time.now.beginning_of_month.beginning_of_week..Time.now.end_of_month.end_of_week
-    )
+    if params[:view] == "list"
+      @consultations = Consultation.all
+      render 'index1'
+    else
+      @consultations = Consultation.where(
+        start_time: Time.now.beginning_of_month.beginning_of_week..Time.now.end_of_month.end_of_week
+      )
+      render 'index'
+    end
   end
 
   # GET /consultations/1 or /consultations/1.json

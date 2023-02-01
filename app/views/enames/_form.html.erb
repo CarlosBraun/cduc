@@ -1,0 +1,52 @@
+<style>
+  #conteiner_3{
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 3%;
+    margin-bottom: 2%;
+    width : auto;
+  }
+  #form1{
+    width : 100% ;
+  }
+  #formspace{
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+  #datos{
+    margin-bottom: 2%;
+  }
+  select{
+    width: 100%;
+    padding: 6px 12px;
+    border: none;
+    border-radius: 4px;
+    background-color: #fff; 
+  }
+  #botones{
+    margin-top: 2%;
+  }
+
+</style>
+
+<div class="row ml-0" id="conteiner_3">
+  <div class="col" id=formspace>
+    <%= form_with model: evaluacion, local: true do |form| %>
+      <%= errors_for evaluacion %>
+      <h2 id="datos">Datos de la Evaluación </h2>
+      <div class="row g-3">
+        <div class="col-md-12">
+          <div class="mb-3" id="form1">
+            <%= form.label 'Nombre de la Evaluación', class: "form-label" %>
+            <%= form.text_field :title, class: "form-control" %>
+          </div>
+        </div>
+      </div>
+      <div class="form-group mt-2 text-center" id="botones"
+      >
+        <%= form.submit 'Guardar Nombre de Evaluación', class: 'btn btn-primary' %>
+        <%= link_to "Volver", :back, class: ["btn", "btn-secondary"] %>
+      </div>
+    <% end %>
+  </div>
+</div>

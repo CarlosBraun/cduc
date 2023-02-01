@@ -1,0 +1,36 @@
+<div class="container mt-5 text-center">
+  <p style="color: green"><%= notice %></p>
+  <title>Calendario</title>
+  <a class="btn btn-primary" id="newboton" href= <%= new_consultation_path %> role="button">Nuevo Evento</a>
+
+  <%= month_calendar(events: @consultations) do |date , consultations| %>
+    <div class="card">
+      <%= date.strftime('%d') %>
+    </div>
+    <% consultations.each do |consultation|%>
+      <div class="card-header">
+        <div class="card-title">
+          <%=consultation.title%>  
+        </div>
+        <p class="card-text">
+          <%=consultation.description%>
+        </p>
+        <div class="card">
+          <% if consultation.allday %>
+            <p class="card-text">
+              Todo el Dia
+            </p>
+          <% elsif consultation.end_time? %>
+            <p class="card-text">
+              Desde <%= consultation.start_time.strftime('%I:%M %p')%>  hasta <%= consultation.end_time.strftime('%I:%M %p')%>
+            </p>
+          <% else %>
+            <p class="card-text">
+              Desde <%= consultation.start_time.strftime('%I:%M %p')%>
+            </p>
+          <%end%>
+        </div>
+      </div>
+    <%end%>
+  <%end%>
+</div>

@@ -2,13 +2,8 @@ class EvaluacionsController < ApplicationController
   before_action :set_evaluacion, only: %i[ show edit update destroy ]
 
   # GET /evaluacions or /evaluacions.json
-  def index
+  def index 
     @evaluacions = Evaluacion.all
-    if params[:view] == "edit"
-      render 'index2'
-    else
-      render 'index1'
-    end
   end
 
   # GET /evaluacions/1 or /evaluacions/1.json

@@ -44,12 +44,11 @@
             <%= form.datetime_field :end_time , class: "form-control" %>
           </div>
         </div>
-        <div class="col-12">
+        <div class="col-md-12">
           <div class="mb-3" id="form1">
-            <input class="form-check-input" type="checkbox" id="allday">
-            <label class="form-check-label" for="allday">
-              Todo el dia?
-            </label>
+            <%= form.label "¿", class: "form-label" %>
+            <%= form.label "Todo el Día?", class: "form-label" %>
+            <%= form.check_box :allday , class: "form-checkbox" %>
           </div>
         </div>
       </div>

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :enames
   resources :evaluacions do
     get "data"
   end

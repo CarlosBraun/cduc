@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-u1 = User.create! :name => 'Carlos', :last_name => "Braun", :email => 'cibraun@miuandes.cl', :mail => 'cibraun@miuandes.cl', :password => 'Carlitosb1', :password_confirmation => 'Carlitosb1', :telephone => "56999393618"
+u1 = User.create! :name => 'Carlos', :last_name => "Braun", :email => 'cibraun@miuandes.cl', :password => 'Carlitosb1', :password_confirmation => 'Carlitosb1', :telephone => "56999393618"
 u2 = User.create! :name => 'Chino', :last_name => "Rios", :email => 'crios@todopadel.cl', :password => 'admin1', :password_confirmation => 'admin1', :telephone => "56999393618"
 u3 = User.create! :name => 'Elon', :last_name => "Musk", :email => 'emusk@tesla.com', :password => 'admin1', :password_confirmation => 'admin1', :telephone => "56999393618"
 u4 = User.create! :name => 'Alberto', :last_name => "Plaza", :email => 'aplaza@gmail.cl', :password => 'admin1', :password_confirmation => 'admin1', :telephone => "56999393618"

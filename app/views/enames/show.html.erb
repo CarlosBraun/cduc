@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @ename %>
+
+<div>
+  <%= link_to "Edit this ename", edit_ename_path(@ename) %> |
+  <%= link_to "Back to enames", enames_path %>
+
+  <%= button_to "Destroy this ename", @ename, method: :delete %>
+</div>

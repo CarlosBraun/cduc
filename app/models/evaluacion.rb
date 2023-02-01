@@ -1,3 +1,3 @@
 class Evaluacion < ApplicationRecord
-    belongs_to :jugador
+    belongs_to :ename
 end
