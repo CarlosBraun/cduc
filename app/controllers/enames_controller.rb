@@ -25,7 +25,7 @@ class EnamesController < ApplicationController
 
     respond_to do |format|
       if @ename.save
-        format.html { redirect_to ename_url(@ename), notice: "Ename was successfully created." }
+        format.html { redirect_to enames_path, notice: "Ename was successfully created." }
         format.json { render :show, status: :created, location: @ename }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -38,7 +38,7 @@ class EnamesController < ApplicationController
   def update
     respond_to do |format|
       if @ename.update(ename_params)
-        format.html { redirect_to ename_url(@ename), notice: "Ename was successfully updated." }
+        format.html { redirect_to enames_path, notice: "Ename was successfully updated." }
         format.json { render :show, status: :ok, location: @ename }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -65,6 +65,6 @@ class EnamesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def ename_params
-      params.fetch(:ename, {})
+      params.fetch(:ename, {}).permit(:title)
     end
 end

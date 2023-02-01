@@ -40,8 +40,8 @@
       <div class="row g-3">
         <div class="col-md-6">
           <div class="mb-3" id="form1">
-            <%= form.label 'Nombre de la Evaluación', class: "form-label" %>
-            <%= form.text_field :title, class: "form-control" %>
+            <%= form.label :jugador_id, class: "form-label" %>
+            <%= form.collection_select(:title, Ename.all.order(created_at: :desc), :title, :title, {}, { class: "form-control" }) %>
           </div>
         </div>
         <div class="col-md-6">
