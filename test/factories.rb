@@ -2,6 +2,39 @@ require 'securerandom'
 
 include FactoryBot::Syntax::Methods
 FactoryBot.define do
+  factory :o2 do
+    title { "MyString" }
+    categoria { "MyString" }
+    j1 { 1 }
+    j2 { 1 }
+    j3 { 1 }
+    j4 { 1 }
+    j5 { 1 }
+    j6 { 1 }
+    j7 { 1 }
+    j8 { 1 }
+    j9 { 1 }
+    j10 { 1 }
+    j11 { 1 }
+    j12 { 1 }
+    j13 { 1 }
+    j14 { 1 }
+    j15 { 1 }
+    j16 { 1 }
+    j17 { 1 }
+    j18 { 1 }
+    j19 { 1 }
+    j20 { 1 }
+    torneo { "MyString" }
+    fecha { "2023-02-01" }
+    e1 { 1 }
+    e2 { 1 }
+    e3 { 1 }
+    es1 { 1 }
+    pf1 { 1 }
+    med_kine1 { 1 }
+  end
+
   factory :ename do
     title { "MyString" }
   end

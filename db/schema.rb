@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_01_012519) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_02_021311) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -130,6 +130,41 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_01_012519) do
     t.string "titulo"
     t.string "texto"
     t.string "categoria"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "o2s", force: :cascade do |t|
+    t.string "title"
+    t.string "categoria"
+    t.integer "j1"
+    t.integer "j2"
+    t.integer "j3"
+    t.integer "j4"
+    t.integer "j5"
+    t.integer "j6"
+    t.integer "j7"
+    t.integer "j8"
+    t.integer "j9"
+    t.integer "j10"
+    t.integer "j11"
+    t.integer "j12"
+    t.integer "j13"
+    t.integer "j14"
+    t.integer "j15"
+    t.integer "j16"
+    t.integer "j17"
+    t.integer "j18"
+    t.integer "j19"
+    t.integer "j20"
+    t.string "torneo"
+    t.date "fecha"
+    t.integer "e1"
+    t.integer "e2"
+    t.integer "e3"
+    t.integer "es1"
+    t.integer "pf1"
+    t.integer "med_kine1"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

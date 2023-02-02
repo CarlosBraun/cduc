@@ -2,130 +2,137 @@
 <html lang="es">
   <%= favicon_link_tag %>
   <div class="min-vh-100 d-flex flex-column">
-    <head>
-      <meta name="viewport" content="width=device-width,initial-scale=1" />
-      <%= csrf_meta_tags %>
-      <%= csp_meta_tag %>
-      <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-      <%= javascript_importmap_tags %>
-      <style>
-        .nav-link{
-          margin-left:1.5em ;
-          color:white;
-        }
-        .nav-link1{
-          color:white;
-          text-decorations:none;
-          margin-left:1.5em ;
-        }
-        .nav-link1:hover{
-          color:white;
-          text-decorations:none !important;
-        }
-        .navbar:hover{
-          text-decorations:none !important;
-          color: white;
-        }
-        navbar{
-          width: 100% ;
-          
-        }
-      </style>
-      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
-          <div class="container-fluid">
-            <%= link_to root_path do %>
-              <img src="/assets/cduc.png" width="24" height="24">
-            <% end %>
-            <%= link_to "Inicio", root_path, class: "navbar-brand", style:
-            "margin-left:.5em" %>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarCollapse">
-              <ul class="navbar-nav me-auto mb-2 mb-md-0">
-                <li class="nav-item">
-                  <%= link_to "Jugadores", jugadors_path, class: "nav-link" %>
-                </li>
-                <li class="nav-item">
-                  <%= link_to "Entrenadores", entrenadors_path, class: "nav-link" %>
-                </li>
-                <li class="nav-item">
-                  <%= link_to "Calendario", consultations_path, class: "nav-link" %>
-                </li>
-                <li class="nav-item">
-                  <%= link_to "Horarios", horarios_path, class: "nav-link" %>
-                </li>
-                <li class="nav-item">
-                  <%= link_to "Anuncios", anuncios_path, class: "nav-link" %>
-                </li>
-                <li class="nav-item">
-                  <%= link_to "Evaluaciones", evaluacions_path, class: "nav-link" %>
-                </li>
-              </ul>
-              <ul class="nav navbar-nav navbar-right" list-style: none;>
-                <%= link_to "https://www.lacatolica.cl/home" do %>
-                  <img src="/assets/lacatolica_logo.png" height="24">
-                <% end %>
-                <%=link_to "Pagar Cuota", "https://pagoscduc.cl/Account/Login", class:"nav-link1" %> 
-                <% if user_signed_in? %>
-                  <%=link_to "Sign out", destroy_user_session_path, data: { turbo_method: :delete } , class:"nav-link1" %>
-                <% elsif !user_signed_in? %>
-                  <%=link_to "Accede", new_user_session_path, class:"nav-link1" %> 
-                  <%=link_to "Registrate", new_user_registration_path , class:"nav-link1"%>
-                <% end %>
-              </ul>
-            </span>
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+    <% unless params[:controller] == 'o2s' && params[:action] == 'show' %>
+      <head>
+        <style>
+          .nav-link{
+            margin-left:1.5em ;
+            color:white;
+          }
+          .nav-link1{
+            color:white;
+            text-decorations:none;
+            margin-left:1.5em ;
+          }
+          .nav-link1:hover{
+            color:white;
+            text-decorations:none !important;
+          }
+          .navbar:hover{
+            text-decorations:none !important;
+            color: white;
+          }
+          navbar{
+            width: 100% ;
+            
+          }
+        </style>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
+            <div class="container-fluid">
+              <%= link_to root_path do %>
+                <img src="/assets/cduc.png" width="24" height="24">
+              <% end %>
+              <%= link_to "Inicio", root_path, class: "navbar-brand", style:
+              "margin-left:.5em" %>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                  <li class="nav-item">
+                    <%= link_to "Jugadores", jugadors_path, class: "nav-link" %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to "Entrenadores", entrenadors_path, class: "nav-link" %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to "Calendario", consultations_path, class: "nav-link" %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to "Horarios", horarios_path, class: "nav-link" %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to "Anuncios", anuncios_path, class: "nav-link" %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to "Evaluaciones", evaluacions_path, class: "nav-link" %>
+                  </li>
+                  <li class="nav-item">
+                    <%= link_to "Generador O2 ", o2s_path, class: "nav-link" %>
+                  </li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right" list-style: none;>
+                  <%= link_to "https://www.lacatolica.cl/home" do %>
+                    <img src="/assets/lacatolica_logo.png" height="24">
+                  <% end %>
+                  <%=link_to "Pagar Cuota", "https://pagoscduc.cl/Account/Login", class:"nav-link1" %> 
+                  <% if user_signed_in? %>
+                    <%=link_to "Sign out", destroy_user_session_path, data: { turbo_method: :delete } , class:"nav-link1" %>
+                  <% elsif !user_signed_in? %>
+                    <%=link_to "Accede", new_user_session_path, class:"nav-link1" %> 
+                    <%=link_to "Registrate", new_user_registration_path , class:"nav-link1"%>
+                  <% end %>
+                </ul>
+              </span>
+            </div>
           </div>
-        </div>
-      </nav>
-    </head>
-    
+        </nav>
+      </head>
+    <% end %>
     <body>
     <!-- The .container-fluid class provides a full width container, spanning the entire width of the viewport -->
-      <main class="container-fluid" style="margin-top:3em">
-        <div class="row">
-          <% if user_signed_in? %>
-            <div class="col-sm-10" id="main_content">
-              <% if notice.present? %>
-                <div class="row ml-0 mt-3" role="alert">
-                  <div id="notice" class="alert alert-success">
-                    <%= notice %>
+      <% unless params[:controller] == 'o2s' && params[:action] == 'show' %>
+        <main class="container-fluid" style="margin-top:3em">
+          <div class="row">
+            <% if user_signed_in? %>
+              <div class="col-sm-10" id="main_content">
+                <% if notice.present? %>
+                  <div class="row ml-0 mt-3" role="alert">
+                    <div id="notice" class="alert alert-success">
+                      <%= notice %>
+                    </div>
                   </div>
-                </div>
-              <% end %>
-              <% if alert.present? %>
-                <div class="row ml-0 mt-3" role="alert">
-                  <div id="alert" class="alert alert-danger">
-                    <%= alert %>
+                <% end %>
+                <% if alert.present? %>
+                  <div class="row ml-0 mt-3" role="alert">
+                    <div id="alert" class="alert alert-danger">
+                      <%= alert %>
+                    </div>
                   </div>
-                </div>
-              <% end %>
-            </div>
-          <% end %>
-          <% if !user_signed_in? %>
-            <div class="container-fluid" id="main_content" style="margin-left:0px">
-              <% if notice.present? %>
-                <div class="row ml-0 mt-3" role="alert">
-                  <div id="notice" class="alert alert-success">
-                    <%= notice %>
+                <% end %>
+              </div>
+            <% end %>
+            <% if !user_signed_in? %>
+              <div class="container-fluid" id="main_content" style="margin-left:0px">
+                <% if notice.present? %>
+                  <div class="row ml-0 mt-3" role="alert">
+                    <div id="notice" class="alert alert-success">
+                      <%= notice %>
+                    </div>
                   </div>
-                </div>
-              <% end %>
-              <% if alert.present? %>
-                <div class="row ml-0 mt-3" role="alert">
-                  <div id="alert" class="alert alert-danger">
-                    <%= alert %>
+                <% end %>
+                <% if alert.present? %>
+                  <div class="row ml-0 mt-3" role="alert">
+                    <div id="alert" class="alert alert-danger">
+                      <%= alert %>
+                    </div>
                   </div>
-                </div>
-              <% end %>
-            </div>
-          <% end %>
-        </div>
-      </main>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+        </main>
+      <% end %>
       <%=yield %>
     </body>
 
     </div>
+    <% unless params[:controller] == 'o2s' && params[:action] == 'show' %>
     <div class="footer">
     <footer class="container-fluid text-muted" >
       <style>
@@ -156,4 +163,5 @@
         background-opacity: 0.8;
       }
   </style>
+  <% end %>
 </html>
