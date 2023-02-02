@@ -26,6 +26,7 @@ class JugadorsController < ApplicationController
 
     respond_to do |format|
       if @jugador.save
+        
         format.html { redirect_to jugador_url(@jugador), notice: "Jugador was successfully created." }
         format.json { render :show, status: :created, location: @jugador }
       else
