@@ -9,6 +9,11 @@
     margin-top: 2%;
     margin-bottom: 2%;
   }
+  .container1{
+    margin-left: 10%;
+    margin-right: 10%;
+    width: 80%;
+  }
 </style>
 
 <h1>O2s</h1>
@@ -26,19 +31,30 @@
   </div>
 </div>
 
-<div class="container">
+<div class="container1">
   <table class="table table-striped" style="width:100%" id="tj">
     <thead>
     <tr>
       <th scope="col">Id</th>
       <th scope="col">Nombre</th>
+      <th scope="col">Torneo</th>
       <th scope="col">Fecha</th>
-      <th scope="col" colspan="2"> </th>
+      <th scope="col">Categoría</th>
+      <th scope="col" colspan="3"> Opciones </th>
     </tr>
     </thead>
-    <tbody>
-    
-    </tbody>
+    <% @o2s.reverse_each do |o2| %> 
+          <tr>
+            <td style="vertical-align: middle;"># <%= o2.id %></td>
+            <td style="vertical-align: middle;"><%= o2.title %></td>
+            <td style="vertical-align: middle;"><%= o2.torneo %></td>
+            <td style="vertical-align: middle;"><%= o2.fecha.strftime('%d-%m-%G') %></td>
+            <td style="vertical-align: middle;"><%= o2.categoria  %></td>
+            <td style="vertical-align: middle;"><%= link_to 'PDF', edit_o2_path(o2), class: ['btn', 'btn-primary'] %></td>
+            <td style="vertical-align: middle;"><%= link_to 'Edit', edit_o2_path(o2), class: ['btn', 'btn-secondary'] %></td>
+            <td style="vertical-align: middle;"><%= link_to "Delete", o2_path(o2), data: { turbo_method: "delete", turbo_confirm: "Borrar la evaluación borrará toda la información asociada." }, class: ['btn', 'btn-danger']  %></td>
+          </tr>
+        <% end %>
   </table>
 
 </div>
