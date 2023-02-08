@@ -8,7 +8,18 @@ class O2sController < ApplicationController
 
   # GET /o2s/1 or /o2s/1.json
   def show
-    @info= []
+    @indices= []
+    @jugadores = []
+    @fechas = []
+    contador = 1
+    temp = [@o2.j1,@o2.j2,@o2.j3,@o2.j4,@o2.j5,@o2.j6,@o2.j7,@o2.j8,@o2.j9,@o2.j10,@o2.j11,@o2.j12,@o2.j13,@o2.j14,@o2.j15,@o2.j16,@o2.j17,@o2.j18,@o2.j19,@o2.j20]
+    for i in temp do
+      if i != nil
+        @indices.append(contador)
+        contador = contador + 1
+        @jugadores.append(Jugador.find_by(id: i))
+      end
+    end
   end
 
   # GET /o2s/new

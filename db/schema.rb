@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_02_021311) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_07_221622) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -72,6 +72,40 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_02_021311) do
     t.string "telephone"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "evaluacion_tecs", force: :cascade do |t|
+    t.string "title"
+    t.date "fecha"
+    t.integer "servicio_velocidad"
+    t.integer "servicio_precision"
+    t.integer "servicio_consistencia"
+    t.string "servicio_tipo"
+    t.integer "ataque_tiempo"
+    t.integer "ataque_precision"
+    t.integer "ataque_aproximacion"
+    t.integer "ataque_torque"
+    t.integer "armado_tiempo"
+    t.integer "armado_precision"
+    t.integer "armado_footwork"
+    t.integer "armado_desiciones"
+    t.integer "pase_consistencia"
+    t.integer "pase_movbalon"
+    t.integer "pase_plataforma"
+    t.integer "pase_desiciones"
+    t.integer "defensa_lectura"
+    t.integer "defensa_bloque"
+    t.integer "defensa_campo"
+    t.integer "defensa_prosicion"
+    t.integer "valores_cooperacion"
+    t.integer "valores_responsabilidad"
+    t.integer "valores_respeto"
+    t.integer "valores_autonomia"
+    t.integer "valores_comunicacion"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "jugador_id", null: false
+    t.index ["jugador_id"], name: "index_evaluacion_tecs_on_jugador_id"
   end
 
   create_table "evaluacions", force: :cascade do |t|
@@ -187,6 +221,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_02_021311) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "evaluacion_tecs", "jugadors"
   add_foreign_key "evaluacions", "enames"
   add_foreign_key "evaluacions", "jugadors"
 end

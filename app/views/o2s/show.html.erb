@@ -1,7 +1,7 @@
 <style>
   .body {
     background: white;
-    background-color: white; 
+    background-color: white !important; 
 
   }
   .container2{
@@ -34,6 +34,7 @@
   }
   #inbc{
     margin-top: 0;
+    height: 35px;
     text-align: center;
   }
   #titulo{
@@ -88,13 +89,26 @@
     margin-left: 0px;
     margin-right: 0px;
   }
+  @media print{
+   #noprint{
+       display:none;
+       width: 100%;
+    }
+  }
+  .col-md-2, .col-md-3{
+    height: 35px;
+  }
+  h6{
+    margin-top: 5px;
+  }
 </style>
-<title>O2 id #<%= @o2.id%></title>
 <div class="container1">
   <div id="cborde">
     <div class="container2">
       <div class="row" >
         <div class="col">
+        <%= link_to 'Volver', o2s_path , class: ['btn', 'btn-secondary'] , id:"noprint" %>
+        <%= link_to 'IMPRIMIR', "#" , :onclick => 'window.print();return false;' , class: ['btn', 'btn-danger'] , id:"noprint" %>
         </div>
         <div class="col" id="foto">
           <h4 id="titulo" >COMPOSICIÓN DE LA DELEGACIÓN</h4>
@@ -113,6 +127,7 @@
         <h5 ><%= @o2.torneo %></h5>
       </div>
       <div class="col-md-5">
+
       </div>
       <div class="col-md-2" id="datos" style="margin-top:4px;">
         <h5>INSTITUCIÓN:</h5>
@@ -132,7 +147,7 @@
   </div>
   <div id="head">
     <div class="row" id="nomargin" >
-      <div class="col-md-2" id="datos2">
+      <div class="col-md-2" id="datos2" style="border-bottom:1px solid black; ">
         <div class="row">
           <div class="col"id="inbc" style="border-left:1px solid black; ">
             <h5>Nro.</h5>
@@ -145,416 +160,87 @@
           </div>
         </div>
       </div>
-      <div class="col-md-2" id="bordescorridos">
+      <div class="col-md-2" id="bordescorridos" style="border-bottom:1px solid black; ">
         <h5 >Apellido</h5>
       </div>
-      <div class="col-md-2" id="bordescorridos">
+      <div class="col-md-2" id="bordescorridos" style="border-bottom:1px solid black; ">
         <h5 >Nombre</h5>
       </div>
-      <div class="col-md-2" id="bordescorridos">
+      <div class="col-md-2" id="bordescorridos" style="border-bottom:1px solid black; ">
         <h5 >Rut</h5>
       </div>
-      <div class="col-md-2" id="bordescorridos">
+      <div class="col-md-2" id="bordescorridos" style="border-bottom:1px solid black; ">
         <h5 >Fecha de Nacimiento</h5>
       </div>
-      <div class="col-md-2" id="bordescorridos">
+      <div class="col-md-2" id="bordescorridos" style="border-bottom:1px solid black; ">
         <h5 >Firma</h5>
       </div>
     </div>
   </div>
+
+
+
   <div id="head2">
     <div class="row" id="nomargin" >
+      <% @jugadores.each do |x| %> 
+
+        <div class="col-md-2" id="datos2">
+          <div class="row">
+            <div class="col"id="inbc" style="border-left:1px solid black; ">
+              <h6 style="color: white;"> 1 </h6>
+            </div>
+            <div class="col"id="inbc">
+              <h6 style="color: white;"> .</h6>
+            </div>
+            <div class="col"id="inbc">
+              <h6 style="color: white;"> .</h6>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-2" id="bordescorridos">
+          <h6 style="text-transform:uppercase"><%= x.last_name1%></h6>
+        </div>
+        <div class="col-md-2" id="bordescorridos">
+          <h6 style="text-transform:uppercase"><%= x.name%></h6>
+        </div>
+        <div class="col-md-2" id="bordescorridos">
+          <h6 style="text-transform:uppercase" ><%=x.rut %></h6>
+        </div>
+        <div class="col-md-2" id="bordescorridos">
+          <h6 ><%=x.fecha.strftime('%d-%m-%G') %></h6>
+        </div>
+        <div class="col-md-2" id="bordescorridos">
+          <h6 style="color: white;">Firma</h6>
+        </div>
+      <% end %>
       <div class="col-md-2" id="datos2">
-        <div class="row">
-          <div class="col"id="inbc" style="border-left:1px solid black; ">
-            <h6>1 </h6>
-          </div>
-          <div class="col"id="inbc">
-            <h6 style="color: white;"> .</h6>
-          </div>
-          <div class="col"id="inbc">
-            <h6 style="color: white;"> .</h6>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-2" id="bordescorridos">
-        <h6 style="color: white;">Apellido</h6>
-      </div>
-      <div class="col-md-2" id="bordescorridos">
-        <h6 style="color: white;">Nombre</h6>
-      </div>
-      <div class="col-md-2" id="bordescorridos">
-        <h6 style="color: white;" >Rut</h6>
-      </div>
-      <div class="col-md-2" id="bordescorridos">
-        <h6 style="color: white;">Fecha de Nacimiento</h6>
-      </div>
-      <div class="col-md-2" id="bordescorridos">
-        <h6 style="color: white;">Firma</h6>
-      </div>
-      
-      
-
-
-
-      <div class="col-md-2" id="datos2">
-        <div class="row">
-          <div class="col"id="inbc" style="border-left:1px solid black; ">
-            <h6>1 </h6>
-          </div>
-          <div class="col"id="inbc">
-            <h6 style="color: white;"> .</h6>
-          </div>
-          <div class="col"id="inbc">
-            <h6 style="color: white;"> .</h6>
+          <div class="row">
+            <div class="col"id="inbc" style="border-left:none; border-right: none; ">
+              <h6> <% 1 %> </h6>
+            </div>
+            <div class="col"id="inbc"style="border-left:none; border-right: none; ">
+              <h6 style="color: white;"> .</h6>
+            </div>
+            <div class="col"id="inbc"style="border-left:none; border-right: none; ">
+              <h6 style="color: white;"> .</h6>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="col-md-2" id="bordescorridos">
-        <h6 style="color: white;">Apellido</h6>
-      </div>
-      <div class="col-md-2" id="bordescorridos">
-        <h6 style="color: white;">Nombre</h6>
-      </div>
-      <div class="col-md-2" id="bordescorridos">
-        <h6 style="color: white;" >Rut</h6>
-      </div>
-      <div class="col-md-2" id="bordescorridos">
-        <h6 style="color: white;">Fecha de Nacimiento</h6>
-      </div>
-      <div class="col-md-2" id="bordescorridos">
-        <h6 style="color: white;">Firma</h6>
-      </div><div class="col-md-2" id="datos2">
-        <div class="row">
-          <div class="col"id="inbc" style="border-left:1px solid black; ">
-            <h6>1 </h6>
-          </div>
-          <div class="col"id="inbc">
-            <h6 style="color: white;"> .</h6>
-          </div>
-          <div class="col"id="inbc">
-            <h6 style="color: white;"> .</h6>
-          </div>
+        <div class="col-md-2" id="bordescorridos" style="border-left:none; border-right: none; ">
+          <h6 style="color: white;">Apellido</h6>
         </div>
-      </div>
-      <div class="col-md-2" id="bordescorridos">
-        <h6 style="color: white;">Apellido</h6>
-      </div>
-      <div class="col-md-2" id="bordescorridos">
-        <h6 style="color: white;">Nombre</h6>
-      </div>
-      <div class="col-md-2" id="bordescorridos">
-        <h6 style="color: white;" >Rut</h6>
-      </div>
-      <div class="col-md-2" id="bordescorridos">
-        <h6 style="color: white;">Fecha de Nacimiento</h6>
-      </div>
-      <div class="col-md-2" id="bordescorridos">
-        <h6 style="color: white;">Firma</h6>
-      </div><div class="col-md-2" id="datos2">
-        <div class="row">
-          <div class="col"id="inbc" style="border-left:1px solid black; ">
-            <h6>1 </h6>
-          </div>
-          <div class="col"id="inbc">
-            <h6 style="color: white;"> .</h6>
-          </div>
-          <div class="col"id="inbc">
-            <h6 style="color: white;"> .</h6>
-          </div>
+        <div class="col-md-2" id="bordescorridos"style="border-left:none; border-right: none; ">
+          <h6 style="color: white;">Nombre</h6>
         </div>
-      </div>
-      <div class="col-md-2" id="bordescorridos">
-        <h6 style="color: white;">Apellido</h6>
-      </div>
-      <div class="col-md-2" id="bordescorridos">
-        <h6 style="color: white;">Nombre</h6>
-      </div>
-      <div class="col-md-2" id="bordescorridos">
-        <h6 style="color: white;" >Rut</h6>
-      </div>
-      <div class="col-md-2" id="bordescorridos">
-        <h6 style="color: white;">Fecha de Nacimiento</h6>
-      </div>
-      <div class="col-md-2" id="bordescorridos">
-        <h6 style="color: white;">Firma</h6>
-      </div><div class="col-md-2" id="datos2">
-        <div class="row">
-          <div class="col"id="inbc" style="border-left:1px solid black; ">
-            <h6>1 </h6>
-          </div>
-          <div class="col"id="inbc">
-            <h6 style="color: white;"> .</h6>
-          </div>
-          <div class="col"id="inbc">
-            <h6 style="color: white;"> .</h6>
-          </div>
+        <div class="col-md-2" id="bordescorridos"style="border-left:none; border-right: none; ">
+          <h6 style="color: white;" >Rut</h6>
         </div>
-      </div>
-      <div class="col-md-2" id="bordescorridos">
-        <h6 style="color: white;">Apellido</h6>
-      </div>
-      <div class="col-md-2" id="bordescorridos">
-        <h6 style="color: white;">Nombre</h6>
-      </div>
-      <div class="col-md-2" id="bordescorridos">
-        <h6 style="color: white;" >Rut</h6>
-      </div>
-      <div class="col-md-2" id="bordescorridos">
-        <h6 style="color: white;">Fecha de Nacimiento</h6>
-      </div>
-      <div class="col-md-2" id="bordescorridos">
-        <h6 style="color: white;">Firma</h6>
-      </div><div class="col-md-2" id="datos2">
-        <div class="row">
-          <div class="col"id="inbc" style="border-left:1px solid black; ">
-            <h6>1 </h6>
-          </div>
-          <div class="col"id="inbc">
-            <h6 style="color: white;"> .</h6>
-          </div>
-          <div class="col"id="inbc">
-            <h6 style="color: white;"> .</h6>
-          </div>
+        <div class="col-md-2" id="bordescorridos"style="border-left:none; border-right: none; ">
+          <h6 style="color: white;">Fecha de Nacimiento</h6>
         </div>
-      </div>
-      <div class="col-md-2" id="bordescorridos">
-        <h6 style="color: white;">Apellido</h6>
-      </div>
-      <div class="col-md-2" id="bordescorridos">
-        <h6 style="color: white;">Nombre</h6>
-      </div>
-      <div class="col-md-2" id="bordescorridos">
-        <h6 style="color: white;" >Rut</h6>
-      </div>
-      <div class="col-md-2" id="bordescorridos">
-        <h6 style="color: white;">Fecha de Nacimiento</h6>
-      </div>
-      <div class="col-md-2" id="bordescorridos">
-        <h6 style="color: white;">Firma</h6>
-      </div><div class="col-md-2" id="datos2">
-        <div class="row">
-          <div class="col"id="inbc" style="border-left:1px solid black; ">
-            <h6>1 </h6>
-          </div>
-          <div class="col"id="inbc">
-            <h6 style="color: white;"> .</h6>
-          </div>
-          <div class="col"id="inbc">
-            <h6 style="color: white;"> .</h6>
-          </div>
+        <div class="col-md-2" id="bordescorridos"style="border-left:none; border-right: none; ">
+          <h6 style="color: white;">Firma</h6>
         </div>
-      </div>
-      <div class="col-md-2" id="bordescorridos">
-        <h6 style="color: white;">Apellido</h6>
-      </div>
-      <div class="col-md-2" id="bordescorridos">
-        <h6 style="color: white;">Nombre</h6>
-      </div>
-      <div class="col-md-2" id="bordescorridos">
-        <h6 style="color: white;" >Rut</h6>
-      </div>
-      <div class="col-md-2" id="bordescorridos">
-        <h6 style="color: white;">Fecha de Nacimiento</h6>
-      </div>
-      <div class="col-md-2" id="bordescorridos">
-        <h6 style="color: white;">Firma</h6>
-      </div><div class="col-md-2" id="datos2">
-        <div class="row">
-          <div class="col"id="inbc" style="border-left:1px solid black; ">
-            <h6>1 </h6>
-          </div>
-          <div class="col"id="inbc">
-            <h6 style="color: white;"> .</h6>
-          </div>
-          <div class="col"id="inbc">
-            <h6 style="color: white;"> .</h6>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-2" id="bordescorridos">
-        <h6 style="color: white;">Apellido</h6>
-      </div>
-      <div class="col-md-2" id="bordescorridos">
-        <h6 style="color: white;">Nombre</h6>
-      </div>
-      <div class="col-md-2" id="bordescorridos">
-        <h6 style="color: white;" >Rut</h6>
-      </div>
-      <div class="col-md-2" id="bordescorridos">
-        <h6 style="color: white;">Fecha de Nacimiento</h6>
-      </div>
-      <div class="col-md-2" id="bordescorridos">
-        <h6 style="color: white;">Firma</h6>
-      </div><div class="col-md-2" id="datos2">
-        <div class="row">
-          <div class="col"id="inbc" style="border-left:1px solid black; ">
-            <h6>1 </h6>
-          </div>
-          <div class="col"id="inbc">
-            <h6 style="color: white;"> .</h6>
-          </div>
-          <div class="col"id="inbc">
-            <h6 style="color: white;"> .</h6>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-2" id="bordescorridos">
-        <h6 style="color: white;">Apellido</h6>
-      </div>
-      <div class="col-md-2" id="bordescorridos">
-        <h6 style="color: white;">Nombre</h6>
-      </div>
-      <div class="col-md-2" id="bordescorridos">
-        <h6 style="color: white;" >Rut</h6>
-      </div>
-      <div class="col-md-2" id="bordescorridos">
-        <h6 style="color: white;">Fecha de Nacimiento</h6>
-      </div>
-      <div class="col-md-2" id="bordescorridos">
-        <h6 style="color: white;">Firma</h6>
-      </div><div class="col-md-2" id="datos2">
-        <div class="row">
-          <div class="col"id="inbc" style="border-left:1px solid black; ">
-            <h6>1 </h6>
-          </div>
-          <div class="col"id="inbc">
-            <h6 style="color: white;"> .</h6>
-          </div>
-          <div class="col"id="inbc">
-            <h6 style="color: white;"> .</h6>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-2" id="bordescorridos">
-        <h6 style="color: white;">Apellido</h6>
-      </div>
-      <div class="col-md-2" id="bordescorridos">
-        <h6 style="color: white;">Nombre</h6>
-      </div>
-      <div class="col-md-2" id="bordescorridos">
-        <h6 style="color: white;" >Rut</h6>
-      </div>
-      <div class="col-md-2" id="bordescorridos">
-        <h6 style="color: white;">Fecha de Nacimiento</h6>
-      </div>
-      <div class="col-md-2" id="bordescorridos">
-        <h6 style="color: white;">Firma</h6>
-      </div><div class="col-md-2" id="datos2">
-        <div class="row">
-          <div class="col"id="inbc" style="border-left:1px solid black; ">
-            <h6>1 </h6>
-          </div>
-          <div class="col"id="inbc">
-            <h6 style="color: white;"> .</h6>
-          </div>
-          <div class="col"id="inbc">
-            <h6 style="color: white;"> .</h6>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-2" id="bordescorridos">
-        <h6 style="color: white;">Apellido</h6>
-      </div>
-      <div class="col-md-2" id="bordescorridos">
-        <h6 style="color: white;">Nombre</h6>
-      </div>
-      <div class="col-md-2" id="bordescorridos">
-        <h6 style="color: white;" >Rut</h6>
-      </div>
-      <div class="col-md-2" id="bordescorridos">
-        <h6 style="color: white;">Fecha de Nacimiento</h6>
-      </div>
-      <div class="col-md-2" id="bordescorridos">
-        <h6 style="color: white;">Firma</h6>
-      </div><div class="col-md-2" id="datos2">
-        <div class="row">
-          <div class="col"id="inbc" style="border-left:1px solid black; ">
-            <h6>1 </h6>
-          </div>
-          <div class="col"id="inbc">
-            <h6 style="color: white;"> .</h6>
-          </div>
-          <div class="col"id="inbc">
-            <h6 style="color: white;"> .</h6>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-2" id="bordescorridos">
-        <h6 style="color: white;">Apellido</h6>
-      </div>
-      <div class="col-md-2" id="bordescorridos">
-        <h6 style="color: white;">Nombre</h6>
-      </div>
-      <div class="col-md-2" id="bordescorridos">
-        <h6 style="color: white;" >Rut</h6>
-      </div>
-      <div class="col-md-2" id="bordescorridos">
-        <h6 style="color: white;">Fecha de Nacimiento</h6>
-      </div>
-      <div class="col-md-2" id="bordescorridos">
-        <h6 style="color: white;">Firma</h6>
-      </div><div class="col-md-2" id="datos2">
-        <div class="row">
-          <div class="col"id="inbc" style="border-left:1px solid black; ">
-            <h6>1 </h6>
-          </div>
-          <div class="col"id="inbc">
-            <h6 style="color: white;"> .</h6>
-          </div>
-          <div class="col"id="inbc">
-            <h6 style="color: white;"> .</h6>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-2" id="bordescorridos">
-        <h6 style="color: white;">Apellido</h6>
-      </div>
-      <div class="col-md-2" id="bordescorridos">
-        <h6 style="color: white;">Nombre</h6>
-      </div>
-      <div class="col-md-2" id="bordescorridos">
-        <h6 style="color: white;" >Rut</h6>
-      </div>
-      <div class="col-md-2" id="bordescorridos">
-        <h6 style="color: white;">Fecha de Nacimiento</h6>
-      </div>
-      <div class="col-md-2" id="bordescorridos">
-        <h6 style="color: white;">Firma</h6>
-      </div><div class="col-md-2" id="datos2" style="border-bottom:1px solid black; ">
-        <div class="row">
-          <div class="col"id="inbc" style="border-left:1px solid black; ">
-            <h6>1 </h6>
-          </div>
-          <div class="col"id="inbc">
-            <h6 style="color: white;"> .</h6>
-          </div>
-          <div class="col"id="inbc">
-            <h6 style="color: white;"> .</h6>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-2" id="bordescorridos" style="border-bottom:1px solid black; ">
-        <h6 style="color: white;">Apellido</h6>
-      </div>
-      <div class="col-md-2" id="bordescorridos" style="border-bottom:1px solid black; ">
-        <h6 style="color: white;">Nombre</h6>
-      </div>
-      <div class="col-md-2" id="bordescorridos" style="border-bottom:1px solid black; ">
-        <h6 style="color: white;" >Rut</h6>
-      </div>
-      <div class="col-md-2" id="bordescorridos" style="border-bottom:1px solid black; ">
-        <h6 style="color: white;">Fecha de Nacimiento</h6>
-      </div>
-      <div class="col-md-2" id="bordescorridos" style="border-bottom:1px solid black; ">
-        <h6 style="color: white;">Firma</h6>
-      </div>
-
-
-
-
-
-
     </div>
     <h5>OFICIALES DE LA DELEGACION</h5>
   </div>
@@ -563,55 +249,55 @@
       <div class="col-md-12" id="datos2" style="border-left:1px solid black; ">
       </div>
       <div class="col-md-3" id="bordescorridos" style="border-left:1px solid black; ">
-        <h6 style="color: white;">Apellido</h6>
+        <h6>Entrenador en Jefe</h6>
       </div>
       <div class="col-md-6" id="bordescorridos">
-        <h6 style="color: white;">Nombre</h6>
+        <h6 style="text-transform:uppercase">Nombre</h6>
       </div>
       <div class="col-md-3">
         <h6 style="color: white;">Apellido</h6>
       </div>
       <div class="col-md-3" id="bordescorridos" style="border-left:1px solid black; ">
-        <h6 style="color: white;">Apellido</h6>
+        <h6>Entrenador Asistente</h6>
       </div>
       <div class="col-md-6" id="bordescorridos">
-        <h6 style="color: white;">Nombre</h6>
+        <h6 style="text-transform:uppercase">Nombre</h6>
       </div>
       <div class="col-md-3">
         <h6 style="color: white;">Apellido</h6>
       </div>
       <div class="col-md-3" id="bordescorridos" style="border-left:1px solid black; ">
-        <h6 style="color: white;">Apellido</h6>
+        <h6>Entrenador Asistente</h6>
       </div>
       <div class="col-md-6" id="bordescorridos">
-        <h6 style="color: white;">Nombre</h6>
+        <h6 style="text-transform:uppercase">Nombre</h6>
       </div>
       <div class="col-md-3">
         <h6 style="color: white;">Apellido</h6>
       </div>
       <div class="col-md-3" id="bordescorridos" style="border-left:1px solid black; ">
-        <h6 style="color: white;">Apellido</h6>
+        <h6>Estadistico</h6>
       </div>
       <div class="col-md-6" id="bordescorridos">
-        <h6 style="color: white;">Nombre</h6>
+        <h6 style="text-transform:uppercase">Nombre</h6>
       </div>
       <div class="col-md-3">
         <h6 style="color: white;">Apellido</h6>
       </div>
       <div class="col-md-3" id="bordescorridos" style="border-left:1px solid black; ">
-        <h6 style="color: white;">Apellido</h6>
+        <h6>Preparador Físico</h6>
       </div>
       <div class="col-md-6" id="bordescorridos">
-        <h6 style="color: white;">Nombre</h6>
+        <h6 style="text-transform:uppercase">Nombre</h6>
       </div>
       <div class="col-md-3">
         <h6 style="color: white;">Apellido</h6>
       </div>
       <div class="col-md-3" id="bordescorridos" style="border-left:1px solid black;border-bottom:1px solid black;">
-        <h6 style="color: white;">Apellido</h6>
+        <h6>Médico / Kinesiólogo</h6>
       </div>
       <div class="col-md-6" id="bordescorridos" style="border-bottom:1px solid black; ">
-        <h6 style="color: white;">Nombre</h6>
+        <h6 style="text-transform:uppercase">Nombre</h6>
       </div>
       <div class="col-md-3">
         <h6 style="text-align: center; border-top:3px solid black; ">Firma del Jefe de Delegación</h6>

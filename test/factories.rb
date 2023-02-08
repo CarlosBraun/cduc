@@ -2,6 +2,10 @@ require 'securerandom'
 
 include FactoryBot::Syntax::Methods
 FactoryBot.define do
+  factory :evaluacion_tec do
+    title { "MyString" }
+  end
+
   factory :o2 do
     title { "MyString" }
     categoria { "MyString" }
