@@ -1,6 +1,9 @@
 class EvaluacionsController < ApplicationController
   before_action :set_evaluacion, only: %i[ show edit update destroy ]
 
+  def main_index
+    @enames = Ename.last(3)
+  end
   # GET /evaluacions or /evaluacions.json
   def index 
     @evaluacions = Evaluacion.all
@@ -25,6 +28,7 @@ class EvaluacionsController < ApplicationController
 
   # POST /evaluacions or /evaluacions.json
   def create
+    params[:evaluacion][:title] = Ename.find_by(id: params[:evaluacion][:ename_id]).title
     @evaluacion = Evaluacion.new(evaluacion_params)
 
     respond_to do |format|
@@ -40,6 +44,7 @@ class EvaluacionsController < ApplicationController
 
   # PATCH/PUT /evaluacions/1 or /evaluacions/1.json
   def update
+    params[:evaluacion][:title] = Ename.find_by(id: params[:evaluacion][:ename_id]).title
     respond_to do |format|
       if @evaluacion.update(evaluacion_params)
         format.html { redirect_to evaluacion_url(@evaluacion), notice: "Evaluacion was successfully updated." }
@@ -60,7 +65,6 @@ class EvaluacionsController < ApplicationController
       format.json { head :no_content }
     end
   end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_evaluacion
@@ -69,6 +73,6 @@ class EvaluacionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def evaluacion_params
-      params.require(:evaluacion).permit(:title, :altura, :embergadura, :peso, :max_pres, :max_squat , :max_dl , :max_jump_incompleto , :max_jump_completo , :max_jump_libre , :max_jump_carrera , :max_v1 , :max_v2 , :max_time, :jugador_id)
+      params.require(:evaluacion).permit(:title, :altura, :embergadura, :peso, :max_pres, :max_squat , :max_dl , :max_jump_incompleto , :max_jump_completo , :max_jump_libre , :max_jump_carrera , :max_v1 , :max_v2 , :max_time, :jugador_id , :ename_id)
     end
 end

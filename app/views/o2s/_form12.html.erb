@@ -38,6 +38,7 @@
     <%= form_with model: o2, local: true do |form| %>
       <%= errors_for o2 %>
       <div class="row g-3">
+      <h3>Datos de la Delegación</h3>
         <div class="col-md-6">
           <div class="mb-3" id="form1">
             <%= form.label 'Nombre del O2', class: "form-label" %>
@@ -62,6 +63,7 @@
             <%= form.date_field :fecha, class: "form-control" %>
           </div>
         </div>
+        <h3>Jugadores de la Delegación</h3>
         <div class="col-md-12">
           <div class="mb-3" id="form2">
             <%= form.label "Jugador 1", class: "form-label" %>
@@ -128,15 +130,52 @@
             <%= form.collection_select(:j11, Jugador.all.order(created_at: :desc), :id, :fullname, {:prompt => 'Seleccione Jugador'}, { class: "form-control" }) %>
           </div>
         </div>
-         <div class="col-md-12">
+        <div class="col-md-12">
           <div class="mb-3" id="form2">
             <%= form.label "Jugador 12", class: "form-label" %>
             <%= form.collection_select(:j12, Jugador.all.order(created_at: :desc), :id, :fullname, {:prompt => 'Seleccione Jugador'}, { class: "form-control" }) %>
           </div>
         </div>
+        <h3>Oficiales de la Delegación</h3>
+        <div class="col-md-12">
+          <div class="mb-3" id="form2">
+            <%= form.label "Entrenador en Jefe", class: "form-label" %>
+            <%= form.collection_select(:e1, Entrenador.all.order(created_at: :desc), :fullname, :fullname, {:prompt => 'Seleccione Entrenador'}, { class: "form-control" }) %>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="mb-3" id="form2">
+            <%= form.label "Entrenador Asistente", class: "form-label" %>
+            <%= form.collection_select(:e2, Entrenador.all.order(created_at: :desc), :fullname, :fullname, {:prompt => 'Seleccione Entrenador'}, { class: "form-control" }) %>
+          </div>
+        </div>
+        <div class="col-md-12"> 
+          <div class="mb-3" id="form2">
+            <%= form.label "Entrenador Asistente", class: "form-label" %>
+            <%= form.collection_select(:e3, Entrenador.all.order(created_at: :desc), :fullname, :fullname, {:prompt => 'Seleccione Entrenador'}, { class: "form-control" }) %>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="mb-3" id="form2">
+            <%= form.label "Estadístico", class: "form-label" %>
+            <%= form.collection_select(:es1, Entrenador.all.order(created_at: :desc), :fullname, :fullname, {:prompt => 'Seleccione Entrenador'}, { class: "form-control" }) %>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="mb-3" id="form2">
+            <%= form.label "Preparador Físico", class: "form-label" %>
+            <%= form.collection_select(:pf1, Entrenador.all.order(created_at: :desc), :fullname, :fullname, {:prompt => 'Seleccione Entrenador'}, { class: "form-control" }) %>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="mb-3" id="form2">
+            <%= form.label "Médico / Kinesiólogo", class: "form-label" %>
+            <%= form.collection_select(:med_kine1, Entrenador.all.order(created_at: :desc), :fullname, :fullname, {:prompt => 'Seleccione Staff'}, { class: "form-control" }) %>
+          </div>
+        </div>
       </div>
       <div class="form-group mt-2 text-center" id="botones">
-        <%= form.submit 'Guardar Jugador', class: 'btn btn-primary' %>
+        <%= form.submit 'Guardar O2', class: 'btn btn-primary' %>
         <%= link_to "Volver", :back, class: ["btn", "btn-secondary"] %>
       </div>
     <% end %>

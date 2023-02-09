@@ -4,6 +4,7 @@ class CreateEntrenadors < ActiveRecord::Migration[7.0]
       t.string :mail
       t.string :name
       t.string :rol
+      t.string :fullname
       t.string :last_name
       t.string :telephone
 

@@ -1,0 +1,76 @@
+<div class="container mt-5 text-center">
+  <title>Evaluaciones</title>
+  <h1>Evaluaciones</h1>
+   <h6 style="margin-top: 2%;">Añadir Periodo de Evaluación previo a la Evaluacion</h6>
+  <div class="row" style="margin-top: 3%;">
+    <div class="col">
+    <%= link_to "Evaluaciones Físicas", evaluacions_path, class: ["btn", "btn-primary"], id:"butoncito" %>
+    </div>
+    <div class="col">
+    <%= link_to "Evaluaciones Técnicas", evaluacions_path, class: ["btn", "btn-primary"], id:"butoncito" %>
+    </div>
+  </div>
+  <h3 style="margin-top: 3%;">Últimos Periodos de Evaluaciones</h3>
+  <table class="table table-striped" style="width:80%" id="tj">
+        <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Fecha</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @enames.reverse_each do |ename| %> 
+          <tr>
+            <td style="vertical-align: middle;"># <%= ename.id %></td>
+            <td style="vertical-align: middle;"><%= ename.title %></td>
+            <td style="vertical-align: middle;"><%= ename.created_at.strftime('%d-%m-%G') %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+  <div class="row text-center" style="margin-top: 2%;">
+    <%= link_to 'Periodos de Evaluacion', enames_path , class: ["btn", "btn-primary"], id:"butoncito"%>
+  </div>
+</div>
+<style>
+  #row1{
+    margin-left: 10%;
+    margin-right: 10%;
+    width: 80%;
+    border: 1px solid black;
+    border-radius: 4px;
+    
+  }
+  #butoncito{
+    margin-top: 2%;
+    margin-bottom: 3%;
+    width: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
+    align: center;
+  }
+  #butoncito1{
+    margin-top: 2%;
+    margin-bottom: 3%;
+    width: 50%;
+    align: left;
+  }
+  #deletebtn{
+    text-align: right;
+  }
+  #lineas{
+    white-space: pre-line
+  }
+  #lista{
+    width : auto;
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: #d4d3d4;
+    background-opacity: 0.8;
+  }
+  #tj{
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+</style>

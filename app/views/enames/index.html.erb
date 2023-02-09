@@ -67,19 +67,19 @@
     text-align: center;
     margin-left:20%;
     margin-right:20%;
+    margin-top:2%;
 
   }
 </style>
 <div id="jugadores">
   <title>Evaluaciones | Data</title>
-  <h1>Evaluaciones</h1>
-  <h5>Información General</h5>
+  <h1>Periodos de Evaluación</h1>
   <div class="row" id="botons">
     <div class="col">
-    <%= link_to "Nueva Evaluacion", new_ename_path, class: ["btn", "btn-primary"], id:"butoncito" %>
+    <%= link_to "Nuevo Periodo", new_ename_path, class: ["btn", "btn-primary"], id:"butoncito" %>
     </div>
     <div class="col">
-    <%= link_to 'Volver a Evaluaciones', evaluacions_path , class: ["btn", "btn-primary"], id:"butoncito"%>
+    <%= link_to 'Volver a Evaluaciones', evaluaciones_path , class: ["btn", "btn-primary"], id:"butoncito"%>
     </div>
   </div>
   <div class="card-header pb-0" id="lista">
@@ -90,7 +90,7 @@
           <th scope="col">Id</th>
           <th scope="col">Nombre</th>
           <th scope="col">Fecha</th>
-          <th scope="col" colspan="2"> </th>
+          <th scope="col" colspan="1"> </th>
         </tr>
         </thead>
         <tbody>
@@ -99,8 +99,7 @@
             <td style="vertical-align: middle;"># <%= ename.id %></td>
             <td style="vertical-align: middle;"><%= ename.title %></td>
             <td style="vertical-align: middle;"><%= ename.created_at.strftime('%d-%m-%G') %></td>
-            <td style="vertical-align: middle;"><%= link_to 'Edit', edit_ename_path(ename), class: ['btn', 'btn-secondary'] %></td>
-            <td style="vertical-align: middle;"><%= link_to "Delete", ename_path(ename), data: { turbo_method: "delete", turbo_confirm: "Borrar la evaluación borrará toda la información asociada." }, class: ['btn', 'btn-danger']  %></td>
+            <td style="vertical-align: middle;"><%= link_to "Delete", ename_path(ename), data: { turbo_method: "delete", turbo_confirm: "Borrar el periodo borrará todas las evaluaciones asociadas al mismo." }, class: ['btn', 'btn-danger']  %></td>
           </tr>
         <% end %>
         </tbody>

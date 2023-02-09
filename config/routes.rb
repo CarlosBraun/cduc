@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
   resources :o2s
   resources :enames
-  resources :evaluacions do
-    get "data"
-  end
+  resources :evaluacions
   resources :anuncios
   resources :horarios
   resources :consultations
@@ -15,5 +13,5 @@ Rails.application.routes.draw do
   resources :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root "pages#home"
-  match 'evaluacions/data', to: "evaluacions#data", via: [:post, :get]
+  get '/evaluaciones', to: 'evaluacions#main_index'
 end

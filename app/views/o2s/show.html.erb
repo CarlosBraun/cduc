@@ -95,7 +95,7 @@
        width: 100%;
     }
   }
-  .col-md-2, .col-md-3{
+  .col-md-2, .col-md-3, .col-md-6{
     height: 35px;
   }
   h6{
@@ -246,61 +246,32 @@
   </div>
   <div id="head2">
     <div class="row" id="nomargin" >
-      <div class="col-md-12" id="datos2" style="border-left:1px solid black; ">
+      <% @entrenadores.each do |x| %> 
+        <div class="col-md-3" id="bordescorridos" style="border-left:1px solid black; ">
+          <h6><%=x[0]%></h6>
+        </div>
+        <div class="col-md-6" id="bordescorridos">
+          <h6 style="text-transform:uppercase"><%=x[1]%></h6>
+        </div>
+        <%if x[2] %>
+          <div class="col-md-3">
+            <h6 style="text-align: center; border-top:3px solid black; ">Firma del Jefe de Delegación</h6>
+          </div>
+        <%elsif%>
+          <div class="col-md-3">
+            <h6 style="color: white;">Firma del Jefe de Delegación</h6>
+          </div>
+        <%end%>
+      <%end%>
+      
+      <div class="col-md-3" id="bordescorridos" style="border-top:1px solid black; border-left:none;  border-right:none;">
+        <h6 style="color: white;">"."</h6>
       </div>
-      <div class="col-md-3" id="bordescorridos" style="border-left:1px solid black; ">
-        <h6>Entrenador en Jefe</h6>
-      </div>
-      <div class="col-md-6" id="bordescorridos">
-        <h6 style="text-transform:uppercase">Nombre</h6>
-      </div>
-      <div class="col-md-3">
-        <h6 style="color: white;">Apellido</h6>
-      </div>
-      <div class="col-md-3" id="bordescorridos" style="border-left:1px solid black; ">
-        <h6>Entrenador Asistente</h6>
-      </div>
-      <div class="col-md-6" id="bordescorridos">
-        <h6 style="text-transform:uppercase">Nombre</h6>
-      </div>
-      <div class="col-md-3">
-        <h6 style="color: white;">Apellido</h6>
-      </div>
-      <div class="col-md-3" id="bordescorridos" style="border-left:1px solid black; ">
-        <h6>Entrenador Asistente</h6>
-      </div>
-      <div class="col-md-6" id="bordescorridos">
-        <h6 style="text-transform:uppercase">Nombre</h6>
+      <div class="col-md-6" id="bordescorridos" style="border-top:1px solid black; border-left:none; border-right:none;">
+        <h6 style="color: white;">".</h6>
       </div>
       <div class="col-md-3">
-        <h6 style="color: white;">Apellido</h6>
-      </div>
-      <div class="col-md-3" id="bordescorridos" style="border-left:1px solid black; ">
-        <h6>Estadistico</h6>
-      </div>
-      <div class="col-md-6" id="bordescorridos">
-        <h6 style="text-transform:uppercase">Nombre</h6>
-      </div>
-      <div class="col-md-3">
-        <h6 style="color: white;">Apellido</h6>
-      </div>
-      <div class="col-md-3" id="bordescorridos" style="border-left:1px solid black; ">
-        <h6>Preparador Físico</h6>
-      </div>
-      <div class="col-md-6" id="bordescorridos">
-        <h6 style="text-transform:uppercase">Nombre</h6>
-      </div>
-      <div class="col-md-3">
-        <h6 style="color: white;">Apellido</h6>
-      </div>
-      <div class="col-md-3" id="bordescorridos" style="border-left:1px solid black;border-bottom:1px solid black;">
-        <h6>Médico / Kinesiólogo</h6>
-      </div>
-      <div class="col-md-6" id="bordescorridos" style="border-bottom:1px solid black; ">
-        <h6 style="text-transform:uppercase">Nombre</h6>
-      </div>
-      <div class="col-md-3">
-        <h6 style="text-align: center; border-top:3px solid black; ">Firma del Jefe de Delegación</h6>
+        <h6 style="color: white;">Firma del Jefe de Delegación</h6>
       </div>
     </div>
     <div class="container">

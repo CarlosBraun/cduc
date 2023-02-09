@@ -14,7 +14,7 @@ class CreateEvaluacions < ActiveRecord::Migration[7.0]
       t.integer :max_jump_carrera
       t.integer :max_v1
       t.integer :max_v2
-      t.time :max_time
+      t.string :max_time
       t.timestamps
     end
   end

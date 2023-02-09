@@ -1,13 +1,8 @@
 <div class="container mt-5 text-center">
-  <title>evaluacions</title>
-  <h1>Evaluaciones</h1>
-  <div class="row">
-    <div class="col">
-    <%= link_to "Nueva Evaluacion", new_evaluacion_path, class: ["btn", "btn-primary"], id:"butoncito" %>
-    </div>
-    <div class="col">
-    <%= link_to 'Editar Data', enames_path , class: ["btn", "btn-primary"], id:"butoncito"%>
-    </div>
+  <title>Evaluaciones Físicas</title>
+  <h1>Evaluaciones Físicas</h1>
+  <div class="row" style="margin-top: 3%;">
+    <%= link_to 'Nueva Evaluacion Física', new_evaluacion_path , class: ["btn", "btn-primary"], id:"butoncito"%>
   </div>
 </div>
 <style>
@@ -22,85 +17,50 @@
   #butoncito{
     margin-top: 2%;
     margin-bottom: 3%;
-    width: 30%;
-    margin-left: 35%;
-    margin-right: 35%;
+    width: 50%;
+    margin-left: 25%;
+    margin-right: 25%;
     align: center;
   }
   #deletebtn{
     text-align: right;
   }
-  body{
-    margin-top:20px;
-
-    text-align: left;
-    background-color: #e2e8f0;    
-  }
-  .card {
-    box-shadow: 0 1px 3px 0 rgba(0,0,0,.1), 0 1px 2px 0 rgba(0,0,0,.06);
-  }
-
-  .card {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    min-width: 0;
-    word-wrap: break-word;
-    background-color: #fff;
-    background-clip: border-box;
-    border: 0 solid rgba(0,0,0,.125);
-    border-radius: .25rem;
-  }
-
-  .card-body {
-    flex: 1 1 auto;
-    min-height: 1px;
-    padding: 1rem;
-  }
-  #foto.col{
-    width: min-content;
-  }
-  #xd{
-    margin-top: 1%;
-
-  }
-  .media-body{
-    margin-top: 1%;
-  }
   #lineas{
     white-space: pre-line
   }
+  #lista{
+    width : auto;
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: #d4d3d4;
+    background-opacity: 0.8;
+  }
 </style>
-
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-2/css/all.min.css" integrity="sha256-46r060N2LrChLLb5zowXQ72/iKKNiw/lAmygmHExk/o=" crossorigin="anonymous" />
-<div class="container">
-<div class="main-body p-0">
-        <!-- Inner main body -->
-        <% @evaluacions.reverse_each do |evaluacion| %>
-        <!-- Forum List -->
-
-            <div class="card mb-2">
-                <div class="card-body p-2 p-sm-3">
-                    <div class="media forum-item">
-                        <div class="row" >
-                            <div class="col-md-auto" id="foto">
-                            <a href="#" data-toggle="collapse" data-target=".forum-content"><img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="mr-3 rounded-circle" width="50" alt="User" /></a>
-                            </div>
-                            <div class="col-md-auto" id="xd" >
-                                <h6 ><a href="#" data-toggle="collapse" data-target=".forum-content" class="text-body"><%= evaluacion.title%></a></h6>
-                                <p class="text-secondary" id="lineas">
-                                <%= evaluacion.id%>
-                            </p>
-                            </div>
-                        </div>
-                        <div class="media-body">
-                            <p class="text-muted"><%=evaluacion.id%> <span class="text-secondary font-weight-bold"> <%= time_ago_in_words(evaluacion.created_at) %></span></p>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-        <!-- /Forum List -->
-        <%end%>
-</div>
+<div class="card-header pb-0" id="lista">
+    <div class="card-body">
+      <table class="table table-striped" style="width:100%" id="tj">
+        <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Jugador</th>
+          <th scope="col">Fecha</th>
+          <th scope="col" colspan="2"> </th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @evaluacions.reverse_each do |ename| %> 
+          <tr>
+            <td style="vertical-align: middle;"># <%= ename.id %></td>
+            <td style="vertical-align: middle;"><%= ename.title %></td>
+            <td style="vertical-align: middle;"><%= Jugador.find_by(id: ename.jugador_id).fullname %></td>
+            <td style="vertical-align: middle;"><%= ename.created_at.strftime('%d-%m-%G') %></td>
+            <td style="vertical-align: middle;"><%= link_to 'Edit', edit_evaluacion_path(ename), class: ['btn', 'btn-secondary'] %></td>
+            <td style="vertical-align: middle;"><%= link_to "Delete", evaluacion_path(ename), data: { turbo_method: "delete", turbo_confirm: "Borrar la evaluación borrará toda la información asociada." }, class: ['btn', 'btn-danger']  %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>

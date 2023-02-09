@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_02_07_221622) do
+ActiveRecord::Schema[7.0].define(version: 2023_02_09_195053) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -68,6 +68,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_07_221622) do
     t.string "mail"
     t.string "name"
     t.string "rol"
+    t.string "fullname"
     t.string "last_name"
     t.string "telephone"
     t.datetime "created_at", null: false
@@ -105,6 +106,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_07_221622) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "jugador_id", null: false
+    t.integer "ename_id", null: false
+    t.index ["ename_id"], name: "index_evaluacion_tecs_on_ename_id"
     t.index ["jugador_id"], name: "index_evaluacion_tecs_on_jugador_id"
   end
 
@@ -122,7 +125,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_07_221622) do
     t.integer "max_jump_carrera"
     t.integer "max_v1"
     t.integer "max_v2"
-    t.time "max_time"
+    t.string "max_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "jugador_id", null: false
@@ -221,6 +224,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_02_07_221622) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "evaluacion_tecs", "enames"
   add_foreign_key "evaluacion_tecs", "jugadors"
   add_foreign_key "evaluacions", "enames"
   add_foreign_key "evaluacions", "jugadors"

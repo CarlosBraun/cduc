@@ -17,21 +17,17 @@
     margin-right: 10%;
     width: 80%;
   }
+  #newboton{
+    width: 40%;
+  }
 </style>
 
 <h1>O2s</h1>
+<title>O2s</title>
 
 
 <div class="row justify-content-md-center" id="conteiner_row">
-  <div class="col-md-auto">
   <a class="btn btn-primary" id="newboton" href= <%= new_o2_path %> role="button">Nuevo O2 Oficial</a>
-  </div>
-  <div class="col-md-auto">
-    <a class="btn btn-primary" id="newboton" href= <%= new_o2_path(view: "12") %> role="button">Nuevo O2 12 Jugadores</a>
-  </div>
-  <div class="col-md-auto">
-    <a class="btn btn-primary" id="newboton" href= <%= new_o2_path(view: "20") %> role="button">Nuevo O2 20 Jugadores</a>
-  </div>
 </div>
 
 <div class="row justify-content-md-center" id="conteiner_row1">
@@ -58,7 +54,7 @@
         <td style="vertical-align: middle;"><%= o2.torneo %></td>
         <td style="vertical-align: middle;"><%= o2.fecha.strftime('%d-%m-%G') %></td>
         <td style="vertical-align: middle;"><%= o2.categoria  %></td>
-        <td style="vertical-align: middle;"><%= link_to 'Ver', o2_path(o2), class: ['btn', 'btn-primary'], target: :_blank %></td>
+        <td style="vertical-align: middle;"><%= link_to 'Ver', o2_path(o2), class: ['btn', 'btn-primary'] %></td>
         <td style="vertical-align: middle;"><%= link_to 'New Tab', o2_path(o2), class: ['btn', 'btn-primary'], target: :_blank %></td>
         <td style="vertical-align: middle;"><%= link_to 'Edit', edit_o2_path(o2), class: ['btn', 'btn-secondary'] %></td>
         <td style="vertical-align: middle;"><%= link_to "Delete", o2_path(o2), data: { turbo_method: "delete", turbo_confirm: "Borrar la evaluación borrará toda la información asociada." }, class: ['btn', 'btn-danger']  %></td>

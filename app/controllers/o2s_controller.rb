@@ -20,18 +20,34 @@ class O2sController < ApplicationController
         @jugadores.append(Jugador.find_by(id: i))
       end
     end
+    @entrenadores = []
+    if @o2.e1 != nil
+      @entrenadores.append(["Entrenador en Jefe",Entrenador.find_by(id: @o2.e1).fullname  , false])
+    end
+    if @o2.e2 != nil
+      @entrenadores.append(["Entrenador Asistente",Entrenador.find_by(id: @o2.e2).fullname, false])
+    end
+    if @o2.e3 != nil
+      @entrenadores.append(["Entrenador Asistente",Entrenador.find_by(id: @o2.e3).fullname , false])
+    end
+    if @o2.es1 != nil
+      @entrenadores.append(["Estadiístico",Entrenador.find_by(id: @o2.es1).fullname, false ])
+    end
+    if @o2.pf1 != nil
+      @entrenadores.append(["Preparador Físico", Entrenador.find_by(id: @o2.pf1).fullname, false ])
+    end
+    if @o2.med_kine1 != nil
+      @entrenadores.append(["Médico / Kinesiólogo", Entrenador.find_by(id: @o2.med_kine1).fullname, false ])
+    end
+    if @entrenadores != []
+      @entrenadores.last[2] = true
+    end
+
   end
 
   # GET /o2s/new
   def new
     @o2 = O2.new
-    if params[:view] == "12"
-      render 'new12'
-    elsif params[:view] == "20"
-      render 'new20'
-    else
-      render 'new14'
-    end
   end
 
   # GET /o2s/1/edit
