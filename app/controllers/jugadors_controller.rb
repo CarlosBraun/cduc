@@ -3,7 +3,7 @@ class JugadorsController < ApplicationController
 
   # GET /jugadors or /jugadors.json
   def index
-    @jugadors = Jugador.all
+    @pagy, @jugadors = pagy(Jugador.all)
   end
 
   # GET /jugadors/1 or /jugadors/1.json
