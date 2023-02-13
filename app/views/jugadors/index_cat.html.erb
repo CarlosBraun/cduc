@@ -1,19 +1,19 @@
 <p style="color: green"><%= notice %></p>
 <title>Jugadores</title>
 <style>
-        h1, h3{
+        h1{
           margin-top: 2%;
           margin-left: 8%;
         }
 
         #newboton{
+          margin-left: 2rem ;
           width : 10em;
         }
         #conteiner_row{
           margin-left: 10%;
-          margin-right:10%;
-          width: 80%;
-          margin-top: 1%;
+          margin-right: 0px;
+          margin-top: 2%;
           margin-bottom: 2%;
         }
         #lista{
@@ -63,24 +63,17 @@
 <div id="jugadores">
   <h1>Jugadores</h1>
   <div class="row" id="conteiner_row">
-    <div class="col-auto" style="margin-top:1%;">
-      <a class="btn btn-primary" id="newboton" href= <%= new_jugador_path %> role="button">Nuevo Jugador</a>
+    <div class="col-auto">
+    <a class="btn btn-primary" id="newboton" href= <%= new_jugador_path %> role="button">Nuevo Jugador</a>
     </div>
-    <div class="col-auto" style="margin-top:1%;">
+    <div class="col-auto">
       <%= render partial: 'jugadors/jugador_sort_controls' %>
     </div>
-    <div class="col" style="margin-top:1%; display: flex; justify-content: flex-end;">
-        <%= form_tag(busqueda_path, :method => "get") do %>
-          <div class="row">
-            <div class="col-auto">
-              <%= search_field_tag :search, params[:search], placeholder: "Jugador", class:"form-control me-2" %>
-            </div>
-            <div class="col-auto">
-              <%= button_tag  "Buscar", :class => "btn btn-outline-primary", :name => nil %>
-            </div>
-          </div>
-        <%end%>
-
+    <div class="col-auto">
+      <form class="d-flex" style="margin-right: 1em" role="search">
+        <input class="form-control me-2" id="search_box" type="search" placeholder="Nombre o Apellido" aria-label="Search">
+        <button class="btn btn-outline-primary" id="search_button" type="submit">Buscar</button>
+      </form>
     </div>
   </div>
   <div class="card-header pb-0" id="lista">

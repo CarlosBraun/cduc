@@ -3,7 +3,12 @@ class JugadorsController < ApplicationController
 
   # GET /jugadors or /jugadors.json
   def index
-    @pagy, @jugadors = pagy(Jugador.all)
+    if params[:view].present?
+      @pagy, @jugadors = pagy(Jugador.where(categoria: params[:view] ))
+    else
+      @pagy, @jugadors = pagy(Jugador.all)
+      render 'index'
+    end
   end
 
   # GET /jugadors/1 or /jugadors/1.json
@@ -17,6 +22,19 @@ class JugadorsController < ApplicationController
 
   # GET /jugadors/1/edit
   def edit
+  end
+
+  def search
+    if  params[:search].blank?
+      redirect_to jugadors_path and return
+    else
+      @parameter = params[:search].downcase
+      @jugadors = Jugador.where("lower(name) LIKE ? or lower(last_name1) LIKE ? or lower(categoria) LIKE ? or lower(posicion) LIKE ?",
+        "%#{@parameter}%",
+        "%#{@parameter}%",
+        "%#{@parameter}%",
+        "%#{@parameter}%")
+    end
   end
 
   # POST /jugadors or /jugadors.json

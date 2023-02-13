@@ -7,13 +7,13 @@
         }
 
         #newboton{
+          margin-left: 2rem ;
           width : 10em;
         }
         #conteiner_row{
           margin-left: 10%;
-          margin-right:10%;
-          width: 80%;
-          margin-top: 1%;
+          margin-right: 10%;
+          margin-top: 2%;
           margin-bottom: 2%;
         }
         #lista{
@@ -63,13 +63,13 @@
 <div id="jugadores">
   <h1>Jugadores</h1>
   <div class="row" id="conteiner_row">
-    <div class="col-auto" style="margin-top:1%;">
+    <div class="col-3" style="margin-top:1%;">
       <a class="btn btn-primary" id="newboton" href= <%= new_jugador_path %> role="button">Nuevo Jugador</a>
     </div>
-    <div class="col-auto" style="margin-top:1%;">
+    <div class="col" style="margin-top:1%;">
       <%= render partial: 'jugadors/jugador_sort_controls' %>
     </div>
-    <div class="col" style="margin-top:1%; display: flex; justify-content: flex-end;">
+    <div class="col-auto" style="margin-top:1%;">
         <%= form_tag(busqueda_path, :method => "get") do %>
           <div class="row">
             <div class="col-auto">
@@ -83,6 +83,7 @@
 
     </div>
   </div>
+  <h3>Resultados de la Busqueda</h3>
   <div class="card-header pb-0" id="lista">
     <div class="card-body">
       <table class="table table-striped" style="width:100%" id="tj">
@@ -103,16 +104,6 @@
           </div>
         </tbody>
       </table>
-    </div>
-    <style>
-      ul{
-        list-style-type:none;
-        display:flex;
-        justify-content: center;
-      }
-    </style>
-    <div class="row justify-content-center">
-      <%== pagy_bootstrap_nav(@pagy) %>
     </div>
   </div>
 </div>
