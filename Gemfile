@@ -96,3 +96,5 @@ gem 'rails-i18n', '~> 7.0.0'
 gem "ruby-vips"
 
 gem 'mail', '~> 2.7'
+
+gem 'jquery-rails'

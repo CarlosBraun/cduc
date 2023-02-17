@@ -4,7 +4,7 @@ class JugadorsController < ApplicationController
   # GET /jugadors or /jugadors.json
   def index
     if params[:view].present?
-      @pagy, @jugadors = pagy(Jugador.where(categoria: params[:view] ))
+      @pagy, @jugadors = pagy(Jugador.where(categoria: params[:view]))
     else
       @pagy, @jugadors = pagy(Jugador.all)
       render 'index'

@@ -25,11 +25,19 @@
             margin-left:1.5em ;
             margin-right:1em ;
           }
-          .nav-link1:hover{
+          .nav-link121{
+            color:white;
+            text-decorations:none !important;
+            margin-left:1.5em ;
+            margin-right:1em ;
+            background: none;
+            border: none;
+          }
+          .nav-link1:hover, .nav-link12:hover{
             color:white;
             text-decorations:none !important;
           }
-          .nav-link12:hover{
+          .nav-link121:hover{
             color:white;
             text-decorations:none !important;
           }
@@ -40,6 +48,10 @@
           navbar{
             width: 100% ;
             
+          }
+          #limite{
+            margin-left:1.5em ;
+            margin-right:1em ;
           }
         </style>
         <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-primary">
@@ -81,7 +93,7 @@
                   <% end %>
                   <%=link_to "Pagar Cuota", "https://pagoscduc.cl/Account/Login", class:"nav-link1", style: "text-decoration: none;" %> 
                   <% if user_signed_in? %>
-                    <%=link_to "Sign out", destroy_user_session_path, data: { turbo_method: :delete } , class:"nav-link1" , style: "text-decoration: none;" %>
+                    <%= button_to "Cerrar Sesión", destroy_user_session_path, method: :delete, class: "nav-link121" %>
                   <% elsif !user_signed_in? %>
                     <%=link_to "Accede", new_user_session_path, class:"nav-link1", style: "text-decoration: none;" %> 
                     <%=link_to "Registrate", new_user_registration_path , class:"nav-link12" , style: "text-decoration: none;"%>
@@ -99,45 +111,45 @@
         <main class="container-fluid" style="margin-top:3em; margin-left: 0;margin-right: 0;">
           <div class="row" id="custom1" style="margin-left: 0; margin-right: 0;">
             <% if user_signed_in? %>
-              <div class="col-sm-10" id="main_content">
+              <div  class="container-fluid" id="main_content" style="margin-left:0px">
                 <% if notice.present? %>
-                  <div class="row ml-0 mt-3" role="alert">
+                  <div class="row ml-0 mt-3" role="alert" id="limite">
                     <div id="notice" class="alert alert-success">
                       <%= notice %>
                     </div>
                   </div>
                 <% end %>
                 <% if alert.present? %>
-                  <div class="row ml-0 mt-3" role="alert">
+                  <div class="row ml-0 mt-3" role="alert" id="limite">
                     <div id="alert" class="alert alert-danger">
                       <%= alert %>
                     </div>
                   </div>
                 <% end %>
-                <%=yield %>
+
               </div>
             <% end %>
             <% if !user_signed_in? %>
               <div class="container-fluid" id="main_content" style="margin-left:0px">
                 <% if notice.present? %>
-                  <div class="row ml-0 mt-3" role="alert">
+                  <div class="row ml-0 mt-3" role="alert" id="limite">
                     <div id="notice" class="alert alert-success">
                       <%= notice %>
                     </div>
                   </div>
                 <% end %>
                 <% if alert.present? %>
-                  <div class="row ml-0 mt-3" role="alert">
+                  <div class="row ml-0 mt-3" role="alert" id="limite">
                     <div id="alert" class="alert alert-danger">
                       <%= alert %>
                     </div>
                   </div>
                 <% end %>
-                <%=yield %>
               </div>
             <% end %>
           </div>
         </main>
+        <%=yield %>
       <% end %>
       <% if params[:controller] == 'o2s' && params[:action] == 'show' %>
         <%=yield %>
@@ -171,9 +183,12 @@
         }
 
       </style>
-        <p id="outro">
-          Braun ©
-        </p>
+        <div class="row">
+          <div class="col"></div>
+          <div class="col">
+          <p id="outro">Braun ©</p></div>
+          <div class="col float-right" >Developer</div>
+        </div>
     </footer>
   </div>
   <style>
